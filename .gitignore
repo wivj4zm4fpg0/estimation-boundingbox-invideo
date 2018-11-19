@@ -1,0 +1,5 @@
+model_data/*.h5
+*.jpg
+*.avi
+.idea
+*__pycache__

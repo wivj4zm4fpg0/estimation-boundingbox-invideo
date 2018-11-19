@@ -10,9 +10,9 @@ import os
 from collections import defaultdict
 
 import numpy as np
-from keras import backend as K
-from keras.layers import (Conv2D, Input, ZeroPadding2D, Add,
-                          UpSampling2D, MaxPooling2D, Concatenate)
+from keras import backend as keras_backend
+from keras.layers import (Conv2D, Input, ZeroPadding2D, Add, UpSampling2D,
+                          MaxPooling2D, Concatenate)
 from keras.layers.advanced_activations import LeakyReLU
 from keras.layers.normalization import BatchNormalization
 from keras.models import Model
@@ -109,14 +109,14 @@ def _main(args):
             # Setting weights.
             # Darknet serializes convolutional weights as:
             # [bias/beta, [gamma, mean, variance], conv_weights]
-            prev_layer_shape = K.int_shape(prev_layer)
+            prev_layer_shape = keras_backend.int_shape(prev_layer)
 
             weights_shape = (size, size, prev_layer_shape[-1], filters)
             darknet_w_shape = (filters, weights_shape[2], size, size)
             weights_size = np.product(weights_shape)
 
-            print('conv2d', 'bn'
-            if batch_normalize else '  ', activation, weights_shape)
+            print('conv2d', 'bn' if batch_normalize else '  ', activation,
+                  weights_shape)
 
             conv_bias = np.ndarray(
                 shape=(filters,),

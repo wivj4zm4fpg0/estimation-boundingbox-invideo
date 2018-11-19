@@ -73,7 +73,7 @@ class YOLO(object):
         is_tiny_version = num_anchors == 6  # default setting
         try:
             self.yolo_model = load_model(model_path, compile=False)
-        except:
+        except ImportError or ValueError:
             self.yolo_model = tiny_yolo_body(Input(shape=(None, None, 3)),
                                              num_anchors // 2, num_classes) \
                 if is_tiny_version else yolo_body(Input(shape=(None, None, 3)),
@@ -81,8 +81,9 @@ class YOLO(object):
             self.yolo_model.load_weights(
                 self.model_path)  # make sure model, anchors and classes match
         else:
-            assert self.yolo_model.layers[-1].output_shape[-1] == \
-                   num_anchors / len(self.yolo_model.output) * (num_classes + 5), \
+            assert self.yolo_model.layers[-1].output_shape[-1] == num_anchors / len(
+                self.yolo_model.output) * (
+                           num_classes + 5), \
                 'Mismatch between model and given anchor and class sizes'
 
         print('{} model, anchors, and classes loaded.'.format(model_path))

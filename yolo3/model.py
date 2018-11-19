@@ -4,7 +4,7 @@ from functools import wraps
 
 import numpy as np
 import tensorflow as tf
-from keras import backend as K
+from keras import backend as keras_backend
 from keras.layers import Conv2D, Add, ZeroPadding2D, UpSampling2D, Concatenate, \
     MaxPooling2D
 from keras.layers.advanced_activations import LeakyReLU
@@ -60,7 +60,7 @@ def darknet_body(x):
 
 
 def make_last_layers(x, num_filters, out_filters):
-    '''6 Conv2D_BN_Leaky layers followed by a Conv2D_linear layer'''
+    """6 Conv2D_BN_Leaky layers followed by a Conv2D_linear layer"""
     x = compose(
         DarknetConv2D_BN_Leaky(num_filters, (1, 1)),
         DarknetConv2D_BN_Leaky(num_filters * 2, (3, 3)),
@@ -94,7 +94,7 @@ def yolo_body(inputs, num_anchors, num_classes):
 
 
 def tiny_yolo_body(inputs, num_anchors, num_classes):
-    '''Create Tiny YOLO_v3 model CNN body in keras.'''
+    """Create Tiny YOLO_v3 model CNN body in keras."""
     x1 = compose(
         DarknetConv2D_BN_Leaky(16, (3, 3)),
         MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding='same'),
@@ -130,39 +130,47 @@ def yolo_head(feats, anchors, num_classes, input_shape, calc_loss=False):
     """Convert final layer features to bounding box parameters."""
     num_anchors = len(anchors)
     # Reshape to batch, height, width, num_anchors, box_params.
-    anchors_tensor = K.reshape(K.constant(anchors), [1, 1, 1, num_anchors, 2])
+    anchors_tensor = keras_backend.reshape(keras_backend.constant(anchors),
+                                           [1, 1, 1, num_anchors, 2])
 
-    grid_shape = K.shape(feats)[1:3]  # height, width
-    grid_y = K.tile(K.reshape(K.arange(0, stop=grid_shape[0]), [-1, 1, 1, 1]),
-                    [1, grid_shape[1], 1, 1])
-    grid_x = K.tile(K.reshape(K.arange(0, stop=grid_shape[1]), [1, -1, 1, 1]),
-                    [grid_shape[0], 1, 1, 1])
-    grid = K.concatenate([grid_x, grid_y])
-    grid = K.cast(grid, K.dtype(feats))
+    grid_shape = keras_backend.shape(feats)[1:3]  # height, width
+    grid_y = keras_backend.tile(
+        keras_backend.reshape(keras_backend.arange(0, stop=grid_shape[0]),
+                              [-1, 1, 1, 1]),
+        [1, grid_shape[1], 1, 1])
+    grid_x = keras_backend.tile(
+        keras_backend.reshape(keras_backend.arange(0, stop=grid_shape[1]),
+                              [1, -1, 1, 1]),
+        [grid_shape[0], 1, 1, 1])
+    grid = keras_backend.concatenate([grid_x, grid_y])
+    grid = keras_backend.cast(grid, keras_backend.dtype(feats))
 
-    feats = K.reshape(
+    feats = keras_backend.reshape(
         feats, [-1, grid_shape[0], grid_shape[1], num_anchors, num_classes + 5])
 
     # Adjust preditions to each spatial grid point and anchor size.
-    box_xy = (K.sigmoid(feats[..., :2]) + grid) / K.cast(grid_shape[::-1],
-                                                         K.dtype(feats))
-    box_wh = K.exp(feats[..., 2:4]) * anchors_tensor / K.cast(input_shape[::-1],
-                                                              K.dtype(feats))
-    box_confidence = K.sigmoid(feats[..., 4:5])
-    box_class_probs = K.sigmoid(feats[..., 5:])
+    box_xy = (keras_backend.sigmoid(feats[..., :2]) + grid) / keras_backend.cast(
+        grid_shape[::-1],
+        keras_backend.dtype(feats))
+    box_wh = keras_backend.exp(feats[..., 2:4]) * anchors_tensor / keras_backend.cast(
+        input_shape[::-1],
+        keras_backend.dtype(feats))
+    box_confidence = keras_backend.sigmoid(feats[..., 4:5])
+    box_class_probs = keras_backend.sigmoid(feats[..., 5:])
 
-    if calc_loss == True:
+    if calc_loss:
         return grid, feats, box_xy, box_wh
     return box_xy, box_wh, box_confidence, box_class_probs
 
 
 def yolo_correct_boxes(box_xy, box_wh, input_shape, image_shape):
-    '''Get corrected boxes'''
+    """Get corrected boxes"""
     box_yx = box_xy[..., ::-1]
     box_hw = box_wh[..., ::-1]
-    input_shape = K.cast(input_shape, K.dtype(box_yx))
-    image_shape = K.cast(image_shape, K.dtype(box_yx))
-    new_shape = K.round(image_shape * K.min(input_shape / image_shape))
+    input_shape = keras_backend.cast(input_shape, keras_backend.dtype(box_yx))
+    image_shape = keras_backend.cast(image_shape, keras_backend.dtype(box_yx))
+    new_shape = keras_backend.round(
+        image_shape * keras_backend.min(input_shape / image_shape))
     offset = (input_shape - new_shape) / 2. / input_shape
     scale = input_shape / new_shape
     box_yx = (box_yx - offset) * scale
@@ -170,7 +178,7 @@ def yolo_correct_boxes(box_xy, box_wh, input_shape, image_shape):
 
     box_mins = box_yx - (box_hw / 2.)
     box_maxes = box_yx + (box_hw / 2.)
-    boxes = K.concatenate([
+    boxes = keras_backend.concatenate([
         box_mins[..., 0:1],  # y_min
         box_mins[..., 1:2],  # x_min
         box_maxes[..., 0:1],  # y_max
@@ -178,19 +186,19 @@ def yolo_correct_boxes(box_xy, box_wh, input_shape, image_shape):
     ])
 
     # Scale boxes back to original image shape.
-    boxes *= K.concatenate([image_shape, image_shape])
+    boxes *= keras_backend.concatenate([image_shape, image_shape])
     return boxes
 
 
 def yolo_boxes_and_scores(feats, anchors, num_classes, input_shape, image_shape):
-    '''Process Conv layer output'''
+    """Process Conv layer output"""
     box_xy, box_wh, box_confidence, box_class_probs = yolo_head(feats,
                                                                 anchors, num_classes,
                                                                 input_shape)
     boxes = yolo_correct_boxes(box_xy, box_wh, input_shape, image_shape)
-    boxes = K.reshape(boxes, [-1, 4])
+    boxes = keras_backend.reshape(boxes, [-1, 4])
     box_scores = box_confidence * box_class_probs
-    box_scores = K.reshape(box_scores, [-1, num_classes])
+    box_scores = keras_backend.reshape(box_scores, [-1, num_classes])
     return boxes, box_scores
 
 
@@ -203,10 +211,9 @@ def yolo_eval(yolo_outputs,
               iou_threshold=.5):
     """Evaluate YOLO model on given input and return filtered boxes."""
     num_layers = len(yolo_outputs)
-    anchor_mask = [[6, 7, 8], [3, 4, 5], [0, 1, 2]] if num_layers == 3 else [[3, 4, 5],
-                                                                             [1, 2,
-                                                                              3]]  # default setting
-    input_shape = K.shape(yolo_outputs[0])[1:3] * 32
+    anchor_mask = [[6, 7, 8], [3, 4, 5], [0, 1, 2]] if num_layers == 3 \
+        else [[3, 4, 5], [1, 2, 3]]  # default setting
+    input_shape = keras_backend.shape(yolo_outputs[0])[1:3] * 32
     boxes = []
     box_scores = []
     for l in range(num_layers):
@@ -216,11 +223,11 @@ def yolo_eval(yolo_outputs,
                                                     image_shape)
         boxes.append(_boxes)
         box_scores.append(_box_scores)
-    boxes = K.concatenate(boxes, axis=0)
-    box_scores = K.concatenate(box_scores, axis=0)
+    boxes = keras_backend.concatenate(boxes, axis=0)
+    box_scores = keras_backend.concatenate(box_scores, axis=0)
 
     mask = box_scores >= score_threshold
-    max_boxes_tensor = K.constant(max_boxes, dtype='int32')
+    max_boxes_tensor = keras_backend.constant(max_boxes, dtype='int32')
     boxes_ = []
     scores_ = []
     classes_ = []
@@ -231,21 +238,21 @@ def yolo_eval(yolo_outputs,
         nms_index = tf.image.non_max_suppression(
             class_boxes, class_box_scores, max_boxes_tensor,
             iou_threshold=iou_threshold)
-        class_boxes = K.gather(class_boxes, nms_index)
-        class_box_scores = K.gather(class_box_scores, nms_index)
-        classes = K.ones_like(class_box_scores, 'int32') * c
+        class_boxes = keras_backend.gather(class_boxes, nms_index)
+        class_box_scores = keras_backend.gather(class_box_scores, nms_index)
+        classes = keras_backend.ones_like(class_box_scores, 'int32') * c
         boxes_.append(class_boxes)
         scores_.append(class_box_scores)
         classes_.append(classes)
-    boxes_ = K.concatenate(boxes_, axis=0)
-    scores_ = K.concatenate(scores_, axis=0)
-    classes_ = K.concatenate(classes_, axis=0)
+    boxes_ = keras_backend.concatenate(boxes_, axis=0)
+    scores_ = keras_backend.concatenate(scores_, axis=0)
+    classes_ = keras_backend.concatenate(classes_, axis=0)
 
     return boxes_, scores_, classes_
 
 
 def preprocess_true_boxes(true_boxes, input_shape, anchors, num_classes):
-    '''Preprocess true boxes to training input format
+    """Preprocess true boxes to training input format
 
     Parameters
     ----------
@@ -259,7 +266,7 @@ def preprocess_true_boxes(true_boxes, input_shape, anchors, num_classes):
     -------
     y_true: list of array, shape like yolo_outputs, xywh are reletive value
 
-    '''
+    """
     assert (true_boxes[
                 ..., 4] < num_classes).all(), 'class id must be less than num_classes'
     num_layers = len(anchors) // 3  # default setting
@@ -288,7 +295,8 @@ def preprocess_true_boxes(true_boxes, input_shape, anchors, num_classes):
     for b in range(m):
         # Discard zero rows.
         wh = boxes_wh[b, valid_mask[b]]
-        if len(wh) == 0: continue
+        if len(wh) == 0:
+            continue
         # Expand dim to apply broadcasting.
         wh = np.expand_dims(wh, -2)
         box_maxes = wh / 2.
@@ -322,7 +330,7 @@ def preprocess_true_boxes(true_boxes, input_shape, anchors, num_classes):
 
 
 def box_iou(b1, b2):
-    '''Return iou tensor
+    """Return iou tensor
 
     Parameters
     ----------
@@ -333,10 +341,10 @@ def box_iou(b1, b2):
     -------
     iou: tensor, shape=(i1,...,iN, j)
 
-    '''
+    """
 
     # Expand dim to apply broadcasting.
-    b1 = K.expand_dims(b1, -2)
+    b1 = keras_backend.expand_dims(b1, -2)
     b1_xy = b1[..., :2]
     b1_wh = b1[..., 2:4]
     b1_wh_half = b1_wh / 2.
@@ -344,16 +352,16 @@ def box_iou(b1, b2):
     b1_maxes = b1_xy + b1_wh_half
 
     # Expand dim to apply broadcasting.
-    b2 = K.expand_dims(b2, 0)
+    b2 = keras_backend.expand_dims(b2, 0)
     b2_xy = b2[..., :2]
     b2_wh = b2[..., 2:4]
     b2_wh_half = b2_wh / 2.
     b2_mins = b2_xy - b2_wh_half
     b2_maxes = b2_xy + b2_wh_half
 
-    intersect_mins = K.maximum(b1_mins, b2_mins)
-    intersect_maxes = K.minimum(b1_maxes, b2_maxes)
-    intersect_wh = K.maximum(intersect_maxes - intersect_mins, 0.)
+    intersect_mins = keras_backend.maximum(b1_mins, b2_mins)
+    intersect_maxes = keras_backend.minimum(b1_maxes, b2_maxes)
+    intersect_wh = keras_backend.maximum(intersect_maxes - intersect_mins, 0.)
     intersect_area = intersect_wh[..., 0] * intersect_wh[..., 1]
     b1_area = b1_wh[..., 0] * b1_wh[..., 1]
     b2_area = b2_wh[..., 0] * b2_wh[..., 1]
@@ -388,12 +396,14 @@ def yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=False):
     y_true = args[num_layers:]
     anchor_mask = [[6, 7, 8], [3, 4, 5], [0, 1, 2]] if num_layers == 3 else [[3, 4, 5],
                                                                              [1, 2, 3]]
-    input_shape = K.cast(K.shape(yolo_outputs[0])[1:3] * 32, K.dtype(y_true[0]))
-    grid_shapes = [K.cast(K.shape(yolo_outputs[l])[1:3], K.dtype(y_true[0])) for l in
+    input_shape = keras_backend.cast(keras_backend.shape(yolo_outputs[0])[1:3] * 32,
+                                     keras_backend.dtype(y_true[0]))
+    grid_shapes = [keras_backend.cast(keras_backend.shape(yolo_outputs[l])[1:3],
+                                      keras_backend.dtype(y_true[0])) for l in
                    range(num_layers)]
     loss = 0
-    m = K.shape(yolo_outputs[0])[0]  # batch size, tensor
-    mf = K.cast(m, K.dtype(yolo_outputs[0]))
+    m = keras_backend.shape(yolo_outputs[0])[0]  # batch size, tensor
+    mf = keras_backend.cast(m, keras_backend.dtype(yolo_outputs[0]))
 
     for l in range(num_layers):
         object_mask = y_true[l][..., 4:5]
@@ -403,57 +413,65 @@ def yolo_loss(args, anchors, num_classes, ignore_thresh=.5, print_loss=False):
                                                      anchors[anchor_mask[l]],
                                                      num_classes, input_shape,
                                                      calc_loss=True)
-        pred_box = K.concatenate([pred_xy, pred_wh])
+        pred_box = keras_backend.concatenate([pred_xy, pred_wh])
 
         # Darknet raw box to calculate loss.
         raw_true_xy = y_true[l][..., :2] * grid_shapes[l][::-1] - grid
-        raw_true_wh = K.log(
+        raw_true_wh = keras_backend.log(
             y_true[l][..., 2:4] / anchors[anchor_mask[l]] * input_shape[::-1])
-        raw_true_wh = K.switch(object_mask, raw_true_wh,
-                               K.zeros_like(raw_true_wh))  # avoid log(0)=-inf
+        raw_true_wh = keras_backend.switch(object_mask, raw_true_wh,
+                                           keras_backend.zeros_like(
+                                               raw_true_wh))  # avoid log(0)=-inf
         box_loss_scale = 2 - y_true[l][..., 2:3] * y_true[l][..., 3:4]
 
         # Find ignore mask, iterate over each of batch.
-        ignore_mask = tf.TensorArray(K.dtype(y_true[0]), size=1, dynamic_size=True)
-        object_mask_bool = K.cast(object_mask, 'bool')
+        ignore_mask = tf.TensorArray(keras_backend.dtype(y_true[0]), size=1,
+                                     dynamic_size=True)
+        object_mask_bool = keras_backend.cast(object_mask, 'bool')
 
-        def loop_body(b, ignore_mask):
+        def loop_body(b, ignored_mask):
             true_box = tf.boolean_mask(y_true[l][b, ..., 0:4],
                                        object_mask_bool[b, ..., 0])
             iou = box_iou(pred_box[b], true_box)
-            best_iou = K.max(iou, axis=-1)
-            ignore_mask = ignore_mask.write(b, K.cast(best_iou < ignore_thresh,
-                                                      K.dtype(true_box)))
-            return b + 1, ignore_mask
+            best_iou = keras_backend.max(iou, axis=-1)
+            ignored_mask = ignored_mask.write(b, keras_backend.cast(
+                best_iou < ignore_thresh,
+                keras_backend.dtype(true_box)))
+            return b + 1, ignored_mask
 
-        _, ignore_mask = K.control_flow_ops.while_loop(lambda b, *args: b < m,
-                                                       loop_body, [0, ignore_mask])
+        _, ignore_mask = keras_backend.control_flow_ops.while_loop(
+            lambda b, *arguments: b < m,
+            loop_body, [0, ignore_mask])
         ignore_mask = ignore_mask.stack()
-        ignore_mask = K.expand_dims(ignore_mask, -1)
+        ignore_mask = keras_backend.expand_dims(ignore_mask, -1)
 
         # K.binary_crossentropy is helpful to avoid exp overflow.
-        xy_loss = object_mask * box_loss_scale * K.binary_crossentropy(raw_true_xy,
-                                                                       raw_pred[...,
-                                                                       0:2],
-                                                                       from_logits=True)
-        wh_loss = object_mask * box_loss_scale * 0.5 * K.square(
+        xy_loss = object_mask * box_loss_scale * keras_backend.binary_crossentropy(
+            raw_true_xy,
+            raw_pred[..., 0:2],
+            from_logits=True
+        )
+        wh_loss = object_mask * box_loss_scale * 0.5 * keras_backend.square(
             raw_true_wh - raw_pred[..., 2:4])
-        confidence_loss = object_mask * K.binary_crossentropy(object_mask,
-                                                              raw_pred[..., 4:5],
-                                                              from_logits=True) + \
-                          (1 - object_mask) * K.binary_crossentropy(object_mask,
-                                                                    raw_pred[..., 4:5],
-                                                                    from_logits=True) * ignore_mask
-        class_loss = object_mask * K.binary_crossentropy(true_class_probs,
-                                                         raw_pred[..., 5:],
-                                                         from_logits=True)
+        confidence_loss = object_mask * keras_backend.binary_crossentropy(
+            object_mask,
+            raw_pred[..., 4:5],
+            from_logits=True
+        ) + (1 - object_mask) * keras_backend.binary_crossentropy(
+            object_mask,
+            raw_pred[..., 4:5],
+            from_logits=True
+        ) * ignore_mask
+        class_loss = object_mask * keras_backend.binary_crossentropy(true_class_probs,
+                                                                     raw_pred[..., 5:],
+                                                                     from_logits=True)
 
-        xy_loss = K.sum(xy_loss) / mf
-        wh_loss = K.sum(wh_loss) / mf
-        confidence_loss = K.sum(confidence_loss) / mf
-        class_loss = K.sum(class_loss) / mf
+        xy_loss = keras_backend.sum(xy_loss) / mf
+        wh_loss = keras_backend.sum(wh_loss) / mf
+        confidence_loss = keras_backend.sum(confidence_loss) / mf
+        class_loss = keras_backend.sum(class_loss) / mf
         loss += xy_loss + wh_loss + confidence_loss + class_loss
         if print_loss:
             loss = tf.Print(loss, [loss, xy_loss, wh_loss, confidence_loss, class_loss,
-                                   K.sum(ignore_mask)], message='loss: ')
+                                   keras_backend.sum(ignore_mask)], message='loss: ')
     return loss

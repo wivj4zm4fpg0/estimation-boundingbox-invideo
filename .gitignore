@@ -3,3 +3,4 @@ model_data/*.h5
 *.avi
 .idea
 *__pycache__
+*.mp4

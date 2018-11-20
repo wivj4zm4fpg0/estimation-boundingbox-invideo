@@ -1,8 +1,8 @@
 import cv2
-import numpy
+import numpy as np
 
 
-def compare_images(image1: numpy.ndarray, image2: numpy.ndarray):
+def compare_images(image1: np.ndarray, image2: np.ndarray):
     similarity_value = 0
     for i in range(3):
         target_hist = cv2.calcHist([image1], [i], None, [256], [0, 256])

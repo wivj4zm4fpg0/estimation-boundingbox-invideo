@@ -1,4 +1,5 @@
 import colorsys
+import copy
 import os
 
 import numpy as np
@@ -41,6 +42,7 @@ class YOLO(object):
         self.score = None
         self.iou = None
         self.colors = None
+        self.trace_boxes_database = None
 
         self.__dict__.update(self._defaults)  # set up default values
         self.__dict__.update(kwargs)  # and update with user overrides
@@ -143,6 +145,8 @@ class YOLO(object):
                                   size=np.floor(3e-2 * image.size[1] + 0.5).astype(
                                       'int32'))
 
+        original_image = copy.copy(image)
+
         for i, c in reversed(list(enumerate(out_classes))):
             predicted_class = self.class_names[c]
 
@@ -165,15 +169,23 @@ class YOLO(object):
             # print(label, (left, top), (right, bottom))
             # example -> person 0.21 (124, 240) (153, 303)
 
+            self.trace_boxes_database.add_box(
+                (top, left, bottom, right),
+                np.asarray(original_image)[top: bottom, left: right]
+            )
+
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])
             else:
                 text_origin = np.array([left, top + 1])
 
             # My kingdom for a good redistributable image drawing library.
-            draw.rectangle([left, top, right, bottom], outline=self.colors[c])
+            draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
             draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
-                           fill=self.colors[c])
+                           fill=(0, 255, 255))
+            # draw.rectangle([left, top, right, bottom], outline=self.colors[c])
+            # draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
+            #                fill=self.colors[c])
             draw.text(text_origin, label, fill=(0, 0, 0), font=font)
             del draw
 

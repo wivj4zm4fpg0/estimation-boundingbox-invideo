@@ -27,4 +27,7 @@ def parse_opts():
     parser.add_argument(
         '--padding_size', type=float, default=0.2, required=False
     )
+    parser.add_argument(
+        '--iou_threshold', type=float, default=0.5, required=False
+    )
     return parser.parse_args()

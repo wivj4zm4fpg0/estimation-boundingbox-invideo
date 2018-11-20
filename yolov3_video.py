@@ -22,6 +22,7 @@ video_path = args.input
 vid = cv2.VideoCapture(video_path)
 if not vid.isOpened():
     print("Error: Video '{}' does not exist.".format(video_path))
+    exit(1)
 
 while True:
     return_value, frame = vid.read()
@@ -39,4 +40,5 @@ while True:
     cv2.imshow("result", result)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
 yolo.close_session()

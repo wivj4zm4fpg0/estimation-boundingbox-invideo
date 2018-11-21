@@ -10,7 +10,7 @@ def compare_images(image1: np.ndarray, image2: np.ndarray) -> float:
         similarity_value += cv2.compareHist(target_hist, comparing_hist, 0)
 
     similarity_value /= 3
-    print(similarity_value)
+    print('hist = {}'.format(similarity_value))
     return similarity_value
 
 

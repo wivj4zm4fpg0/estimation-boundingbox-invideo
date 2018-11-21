@@ -14,17 +14,21 @@ class TraceBoxesDatabase:
         self.trace_boxes = []
 
     def add_box(self, box: tuple, image: np.ndarray):
-        if image.shape[1] > self.width / 3 or image.shape[0] > self.height / 2:
-            return
+        # if image.shape[1] > self.width / 3 or image.shape[0] > self.height / 2:
+        #     return
         near_dict = {}
+        iou_dict = {}
         for i, trace_box in enumerate(self.trace_boxes):
             if not trace_box.is_contain_position(box):
                 continue
             near_dict[i] = math.sqrt((box[0] - trace_box.current_top) ** 2 + (
                     box[1] - trace_box.current_left) ** 2)
+            iou_dict[i] = self.trace_boxes[i].iou(box, image)
         if len(near_dict) != 0:
             near_index = \
                 [k for k, v in near_dict.items() if v == min(near_dict.values())][0]
+            iou_index = \
+                [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
             if compare_images(
                     image,
                     self.trace_boxes[near_index].current_image
@@ -34,8 +38,11 @@ class TraceBoxesDatabase:
                 return
                 # self.trace_boxes.append(TraceBox(box, image))
                 # return
-            self.trace_boxes[near_index].update(box, image)
+            self.trace_boxes[iou_index].update(box, image)
+            # self.trace_boxes[near_index].update(box, image)
         else:
+            # if len(self.trace_boxes) == 3:
+            #     return
             self.trace_boxes.append(TraceBox(box, image))
 
     def padding_boxes(self):

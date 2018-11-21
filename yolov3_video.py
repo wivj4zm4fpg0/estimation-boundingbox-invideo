@@ -48,7 +48,7 @@ while True:
                       (trace_box.right, trace_box.bottom), (255, 255, 255), 1)
 
     cv2.imshow("result", result)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(0) & 0xFF == ord('q'):
         break
 
 yolo.close_session()

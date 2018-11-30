@@ -1,6 +1,4 @@
-import math
-
-import numpy as np
+import re
 
 from opt import parse_opts
 
@@ -8,39 +6,58 @@ args = parse_opts()
 
 
 class TraceBoxesDatabase:
+    # 動画の縦幅と横幅を引数とする
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
         self.trace_boxes = []
 
-    def add_box(self, box: tuple, image: np.ndarray):
-        self.trace_boxes.append(TraceBox(box, image))
+    # 追跡対象のバウンディングボックスを追加
+    def add_box_all(self, box: tuple):
+        self.trace_boxes.append(TraceBox(box))
 
-    def get_dict(self, box: tuple, image: np.ndarray) -> tuple:
-        near_dict = {}
+    # 追跡対象のバウンディングボックスを追加
+    def add_box(self, box: tuple):
+        for trace_box in self.trace_boxes:
+            if trace_box.is_contain_position(box):
+                return
+        self.trace_boxes.append(TraceBox(box))
+
+    def add_box_include(self, box: tuple):
+        for trace_box in self.trace_boxes:
+            if trace_box.is_include(box):
+                return
+        self.trace_boxes.append(TraceBox(box))
+
+    # 追跡対象のバウンディングボックスと現フレームのバウンディングボックスのそれぞれのiou値を総当りで調べて一番近いものを出力
+    def get_index(self, box: tuple) -> tuple:
         iou_dict = {}
         for i, trace_box in enumerate(self.trace_boxes):
-            # if not trace_box.is_contain_position(box):
-            #     continue
-            near_dict[i] = math.sqrt((box[0] - trace_box.current_top) ** 2 + (
-                    box[1] - trace_box.current_left) ** 2)
-            iou_dict[i] = self.trace_boxes[i].iou(box, image)
-        near_index = \
-            [k for k, v in near_dict.items() if v == min(near_dict.values())][0]
+            if not trace_box.is_contain_position_current(box):
+                iou_dict[i] = 0
+            else:
+                iou_dict[i] = trace_box.iou(box)
         iou_index = \
             [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
-        return near_index, iou_index
+        return iou_index, iou_dict[iou_index]
 
+    # iouが近いものを更新する
     def all_update(self, box_list: list):
-        near_list = []
         iou_list = []
+        value_list = []
         for box in box_list:
-            near, iou = self.get_dict(box[0], box[1])
-            near_list.append(near)
+            iou, value = self.get_index(box[0])
             iou_list.append(iou)
+            value_list.append(value)
         for i in range(len(box_list)):
-            self.trace_boxes[iou_list[i]].update(box_list[i][0], box_list[i][1])
+            if value_list[i] == 0:
+                continue
+            if value_list[i] < args.iou_threshold:
+                self.add_box_include(box_list[i][0])
+                continue
+            self.trace_boxes[iou_list[i]].update(box_list[i][0])
 
+    # 未使用.バウンディングボックスを拡張する
     def padding_boxes(self):
         for trace_box in self.trace_boxes:
             trace_box.top = int(
@@ -52,19 +69,23 @@ class TraceBoxesDatabase:
             trace_box.right = int(
                 min(self.width, trace_box.right * (1 + args.padding_size)))
 
-    def print_boxes(self):
-        for trace_box in self.trace_boxes:
-            option = '-vf crop={}:{}:{}:{}'.format(
+    # ffmpegでクロッピングするためのコマンドを出力
+    def print_boxes(self, input_name):
+        for i, trace_box in enumerate(self.trace_boxes):
+            output_name = '{}_{}.mp4'.format(re.sub(r'\.mp4', '', input_name), i)
+            command = 'ffmpeg -y -i {} -vf crop={}:{}:{}:{} {}'.format(
+                input_name,
                 trace_box.right - trace_box.left,
                 trace_box.bottom - trace_box.top,
                 trace_box.left,
-                trace_box.top
+                trace_box.top,
+                output_name
             )
-            yield option
+            print(command)
 
 
 class TraceBox:
-    def __init__(self, box: tuple, image: np.ndarray):
+    def __init__(self, box: tuple):
         self.top = box[0]
         self.left = box[1]
         self.bottom = box[2]
@@ -75,9 +96,8 @@ class TraceBox:
         self.current_bottom = box[2]
         self.current_right = box[3]
 
-        self.current_image = image
-
-    def update(self, box: tuple, image: np.ndarray):
+    # 追跡対象のバウンディングボックスを更新する
+    def update(self, box: tuple):
         self.top = min(self.top, box[0])
         self.left = min(self.left, box[1])
         self.bottom = max(self.bottom, box[2])
@@ -88,9 +108,16 @@ class TraceBox:
         self.current_bottom = box[2]
         self.current_right = box[3]
 
-        self.current_image = image
-
     def is_contain_position(self, box: tuple) -> bool:
+        if (self.top > box[0] and self.top > box[2]) or (
+                self.bottom < box[0] and self.bottom < box[2]) or (
+                self.left > box[1] and self.left > box[3]) or (
+                self.right < box[1] and self.right < box[3]):
+            return False
+        else:
+            return True
+
+    def is_contain_position_current(self, box: tuple) -> bool:
         if (self.current_top > box[0] and self.current_top > box[2]) or (
                 self.current_bottom < box[0] and self.current_bottom < box[2]) or (
                 self.current_left > box[1] and self.current_left > box[3]) or (
@@ -99,13 +126,20 @@ class TraceBox:
         else:
             return True
 
-    def iou(self, box: tuple, image: np.ndarray) -> float:
+    def is_include(self, box: tuple) -> bool:
+        if (self.top < box[0] and self.left < box[1] and self.bottom > box[2]
+                and self.right > box[3]):
+            return True
+        else:
+            return False
+
+    def iou(self, box: tuple) -> float:
 
         if self.current_left < box[1]:
             if self.current_right < box[3]:
                 width = self.current_right - box[1]
             else:
-                width = image.shape[1]
+                width = box[3] - box[1]
         else:
             if box[3] < self.current_right:
                 width = box[3] - self.current_left
@@ -116,7 +150,7 @@ class TraceBox:
             if self.current_bottom < box[2]:
                 height = self.current_bottom - box[0]
             else:
-                height = image.shape[0]
+                height = box[2] - box[0]
         else:
             if box[2] < self.current_bottom:
                 height = box[2] - self.current_top
@@ -128,4 +162,5 @@ class TraceBox:
                 self.current_bottom - self.current_top) + \
                    (box[3] - box[1]) * (box[2] - box[0]) - area
         # print('iou = {}'.format(area / all_area))
-        return area / all_area
+        iou_value = area / all_area
+        return iou_value

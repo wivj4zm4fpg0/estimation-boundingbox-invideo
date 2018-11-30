@@ -1,5 +1,4 @@
 # import time
-import re
 
 import cv2
 import numpy as np
@@ -25,7 +24,7 @@ yolo = YOLO(
     model_path=args.model,
     anchors_path=args.anchors,
     model_image_size=(args.size, args.size),
-    score=args.conf_threshold_init,
+    score=args.conf_threshold,
     iou=args.nms_threshold,
     trace_boxes_database=trace_boxes_database
 )
@@ -34,29 +33,21 @@ i = 0
 while True:
     return_value, frame = cap.read()
     if not return_value:
-        for i, option in enumerate(trace_boxes_database.print_boxes()):
-            out_name = '{}_{}.mp4'.format(re.sub(r'\.mp4', '', args.input), i)
-            command = 'ffmpeg -y -i {} {} {}'.format(
-                args.input,
-                option,
-                out_name
-            )
-            print(command)
+        trace_boxes_database.print_boxes(args.input)
         cv2.waitKey(0)
         break
     image = Image.fromarray(frame)
 
     # Run detection
-    # start = time.time()
-    image, return_boxes = yolo.detect_image(image, i)
-    # end = time.time()
-    # print("Detection Time: {:.3f} sec".format(end - start))
+    image, return_boxes = yolo.detect_image(image)
 
     result = np.asarray(image)
     if len(trace_boxes_database.trace_boxes) == 0:
         for return_box in return_boxes:
-            trace_boxes_database.add_box(return_box[0], return_box[1])
+            trace_boxes_database.add_box_all(return_box[0])
     else:
+        for return_box in return_boxes:
+            trace_boxes_database.add_box(return_box[0])
         trace_boxes_database.all_update(return_boxes)
     for trace_box in trace_boxes_database.trace_boxes:
         cv2.rectangle(result, (trace_box.left, trace_box.top),

@@ -108,7 +108,7 @@ class YOLO(object):
                                            iou_threshold=self.iou)
         return boxes, scores, classes
 
-    def detect_image(self, image: PIL, index: int):
+    def detect_image(self, image: PIL):
         if self.model_image_size != (None, None):
             assert self.model_image_size[0] % 32 == 0, 'Multiples of 32 required'
             assert self.model_image_size[1] % 32 == 0, 'Multiples of 32 required'
@@ -178,13 +178,7 @@ class YOLO(object):
             else:
                 text_origin = np.array([left, top + 1])
 
-            if index == 0 and self.score < score:
-                # My kingdom for a good redistributable image drawing library.
-                draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
-                draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
-                               fill=(0, 255, 255))
-                draw.text(text_origin, label, fill=(0, 0, 0), font=font)
-            elif index > 0 and args.conf_threshold < score:
+            if self.score < score:
                 # My kingdom for a good redistributable image drawing library.
                 draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
                 draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],

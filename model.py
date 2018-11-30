@@ -2,6 +2,7 @@ import colorsys
 import copy
 import os
 
+import PIL
 import numpy as np
 from PIL import ImageFont, ImageDraw
 from keras import backend as keras_backend
@@ -9,43 +10,38 @@ from keras.layers import Input
 from keras.models import load_model
 from keras.utils import multi_gpu_model
 
+from opt import parse_opts
+from trace_boxes import TraceBoxesDatabase
 from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
 from yolo3.utils import letterbox_image
 
+args = parse_opts()
+
 
 class YOLO(object):
-    _defaults = {
-        "model_path": 'model_data/yolo.h5',
-        "anchors_path": 'model_data/yolo_anchors.txt',
-        "classes_path": 'model_data/coco_classes.txt',
-        "score": 0.3,
-        "iou": 0.45,
-        "model_image_size": (416, 416),
-        "gpu_num": 1,
-    }
-
-    @classmethod
-    def get_defaults(cls, n):
-        if n in cls._defaults:
-            return cls._defaults[n]
-        else:
-            return "Unrecognized attribute name '" + n + "'"
-
-    def __init__(self, **kwargs):
-        self.classes_path = None
-        self.anchors_path = None
-        self.model_path = None
+    def __init__(
+            self,
+            model_path='model_data/yolo.h5',
+            anchors_path='model_data/yolo_anchors.txt',
+            classes_path='model_data/coco_classes.txt',
+            model_image_size=(416, 416),
+            score=0.3,
+            iou=0.45,
+            trace_boxes_database=None,
+            gpu_num=1
+    ):
+        self.classes_path = classes_path
+        self.anchors_path = anchors_path
+        self.model_path = model_path
         self.input_image_shape = None
-        self.gpu_num = None
+        self.gpu_num = gpu_num
         self.yolo_model = None
-        self.model_image_size: tuple = (None, None)
-        self.score = None
-        self.iou = None
+        self.model_image_size: tuple = model_image_size
+        self.score = score
+        self.iou = iou
         self.colors = None
-        self.trace_boxes_database = None
+        self.trace_boxes_database: TraceBoxesDatabase = trace_boxes_database
 
-        self.__dict__.update(self._defaults)  # set up default values
-        self.__dict__.update(kwargs)  # and update with user overrides
         self.class_names = self._get_class()
         self.anchors = self._get_anchors()
         self.sess = keras_backend.get_session()
@@ -112,7 +108,7 @@ class YOLO(object):
                                            iou_threshold=self.iou)
         return boxes, scores, classes
 
-    def detect_image(self, image):
+    def detect_image(self, image: PIL, index: int):
         if self.model_image_size != (None, None):
             assert self.model_image_size[0] % 32 == 0, 'Multiples of 32 required'
             assert self.model_image_size[1] % 32 == 0, 'Multiples of 32 required'
@@ -147,6 +143,8 @@ class YOLO(object):
 
         original_image = copy.copy(image)
 
+        return_boxes = []
+
         for i, c in reversed(list(enumerate(out_classes))):
             predicted_class = self.class_names[c]
 
@@ -169,27 +167,33 @@ class YOLO(object):
             # print(label, (left, top), (right, bottom))
             # example -> person 0.21 (124, 240) (153, 303)
 
-            self.trace_boxes_database.add_box(
+            return_boxes.append((
                 (top, left, bottom, right),
-                np.asarray(original_image)[top: bottom, left: right]
-            )
+                np.asarray(original_image)[top: bottom, left: right],
+                score
+            ))
 
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])
             else:
                 text_origin = np.array([left, top + 1])
 
-            # My kingdom for a good redistributable image drawing library.
-            draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
-            draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
-                           fill=(0, 255, 255))
-            # draw.rectangle([left, top, right, bottom], outline=self.colors[c])
-            # draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
-            #                fill=self.colors[c])
-            draw.text(text_origin, label, fill=(0, 0, 0), font=font)
+            if index == 0 and self.score < score:
+                # My kingdom for a good redistributable image drawing library.
+                draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
+                draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
+                               fill=(0, 255, 255))
+                draw.text(text_origin, label, fill=(0, 0, 0), font=font)
+            elif index > 0 and args.conf_threshold < score:
+                # My kingdom for a good redistributable image drawing library.
+                draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
+                draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
+                               fill=(0, 255, 255))
+                draw.text(text_origin, label, fill=(0, 0, 0), font=font)
+
             del draw
 
-        return image
+        return image, return_boxes
 
     def close_session(self):
         self.sess.close()

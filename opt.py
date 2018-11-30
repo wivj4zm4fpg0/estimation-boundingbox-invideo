@@ -16,6 +16,9 @@ def parse_opts():
         '--anchors', type=str, default=None, required=True
     )
     parser.add_argument(
+        '--conf_threshold_init', type=float, default=0.2, required=False
+    )
+    parser.add_argument(
         '--conf_threshold', type=float, default=0.3, required=False
     )
     parser.add_argument(

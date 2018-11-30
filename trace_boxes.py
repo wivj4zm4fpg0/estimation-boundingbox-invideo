@@ -1,7 +1,7 @@
-import numpy as np
 import math
 
-from compare_hist_test import compare_images
+import numpy as np
+
 from opt import parse_opts
 
 args = parse_opts()
@@ -14,36 +14,32 @@ class TraceBoxesDatabase:
         self.trace_boxes = []
 
     def add_box(self, box: tuple, image: np.ndarray):
-        # if image.shape[1] > self.width / 3 or image.shape[0] > self.height / 2:
-        #     return
+        self.trace_boxes.append(TraceBox(box, image))
+
+    def get_dict(self, box: tuple, image: np.ndarray) -> tuple:
         near_dict = {}
         iou_dict = {}
         for i, trace_box in enumerate(self.trace_boxes):
-            if not trace_box.is_contain_position(box):
-                continue
+            # if not trace_box.is_contain_position(box):
+            #     continue
             near_dict[i] = math.sqrt((box[0] - trace_box.current_top) ** 2 + (
                     box[1] - trace_box.current_left) ** 2)
             iou_dict[i] = self.trace_boxes[i].iou(box, image)
-        if len(near_dict) != 0:
-            near_index = \
-                [k for k, v in near_dict.items() if v == min(near_dict.values())][0]
-            iou_index = \
-                [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
-            if compare_images(
-                    image,
-                    self.trace_boxes[near_index].current_image
-            ) < args.compare_hist_threshold:
-                return
-            if self.trace_boxes[near_index].iou(box, image) < args.iou_threshold:
-                return
-                # self.trace_boxes.append(TraceBox(box, image))
-                # return
-            self.trace_boxes[iou_index].update(box, image)
-            # self.trace_boxes[near_index].update(box, image)
-        else:
-            # if len(self.trace_boxes) == 3:
-            #     return
-            self.trace_boxes.append(TraceBox(box, image))
+        near_index = \
+            [k for k, v in near_dict.items() if v == min(near_dict.values())][0]
+        iou_index = \
+            [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
+        return near_index, iou_index
+
+    def all_update(self, box_list: list):
+        near_list = []
+        iou_list = []
+        for box in box_list:
+            near, iou = self.get_dict(box[0], box[1])
+            near_list.append(near)
+            iou_list.append(iou)
+        for i in range(len(box_list)):
+            self.trace_boxes[iou_list[i]].update(box_list[i][0], box_list[i][1])
 
     def padding_boxes(self):
         for trace_box in self.trace_boxes:
@@ -55,6 +51,16 @@ class TraceBoxesDatabase:
                 min(self.height, trace_box.bottom * (1 + args.padding_size)))
             trace_box.right = int(
                 min(self.width, trace_box.right * (1 + args.padding_size)))
+
+    def print_boxes(self):
+        for trace_box in self.trace_boxes:
+            option = '-vf crop={}:{}:{}:{}'.format(
+                trace_box.right - trace_box.left,
+                trace_box.bottom - trace_box.top,
+                trace_box.left,
+                trace_box.top
+            )
+            yield option
 
 
 class TraceBox:
@@ -121,5 +127,5 @@ class TraceBox:
         all_area = (self.current_right - self.current_left) * (
                 self.current_bottom - self.current_top) + \
                    (box[3] - box[1]) * (box[2] - box[0]) - area
-        print('iou = {}'.format(area / all_area))
+        # print('iou = {}'.format(area / all_area))
         return area / all_area

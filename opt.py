@@ -25,7 +25,7 @@ def parse_opts():
         '--compare_hist_threshold', type=float, default=0.4, required=False
     )
     parser.add_argument(
-        '--padding_size', type=float, default=0.2, required=False
+        '--padding_size', type=float, default=1.2, required=False
     )
     parser.add_argument(
         '--iou_threshold', type=float, default=0.5, required=False

@@ -50,24 +50,28 @@ class TraceBoxesDatabase:
             iou_list.append(iou)
             value_list.append(value)
         for i in range(len(box_list)):
-            if value_list[i] == 0:
-                continue
+            # if value_list[i] == 0:
+            #     continue
             if value_list[i] < args.iou_threshold:
                 self.add_box_include(box_list[i][0])
                 continue
             self.trace_boxes[iou_list[i]].update(box_list[i][0])
 
-    # 未使用.バウンディングボックスを拡張する
+    # バウンディングボックスを拡張する
     def padding_boxes(self):
         for trace_box in self.trace_boxes:
+            box_width = trace_box.right - trace_box.left
+            box_height = trace_box.bottom - trace_box.top
+            pad_width = (box_width * args.padding_size - box_width) / 2
+            pad_height = (box_height * args.padding_size - box_height) / 2
             trace_box.top = int(
-                max(0, trace_box.top - trace_box.top * args.padding_size))
+                max(0, trace_box.top - pad_height))
             trace_box.left = int(
-                max(0, trace_box.left - trace_box.left * args.padding_size))
+                max(0, trace_box.left - pad_width))
             trace_box.bottom = int(
-                min(self.height, trace_box.bottom * (1 + args.padding_size)))
+                min(self.height, trace_box.bottom + pad_height))
             trace_box.right = int(
-                min(self.width, trace_box.right * (1 + args.padding_size)))
+                min(self.width, trace_box.right + pad_width))
 
     # ffmpegでクロッピングするためのコマンドを出力
     def print_boxes(self, input_name):
@@ -127,8 +131,8 @@ class TraceBox:
             return True
 
     def is_include(self, box: tuple) -> bool:
-        if (self.top < box[0] and self.left < box[1] and self.bottom > box[2]
-                and self.right > box[3]):
+        if (self.top <= box[0] and self.left <= box[1] and self.bottom > -box[2]
+                and self.right >= box[3]):
             return True
         else:
             return False
@@ -161,6 +165,4 @@ class TraceBox:
         all_area = (self.current_right - self.current_left) * (
                 self.current_bottom - self.current_top) + \
                    (box[3] - box[1]) * (box[2] - box[0]) - area
-        # print('iou = {}'.format(area / all_area))
-        iou_value = area / all_area
-        return iou_value
+        return area / all_area

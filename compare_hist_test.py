@@ -15,7 +15,9 @@ def compare_images(image1: np.ndarray, image2: np.ndarray) -> float:
 
 
 if __name__ == '__main__':
-    value = compare_images(cv2.imread('Histogram_Comparison_Source_0.jpg'),
-                           cv2.imread('Histogram_Comparison_Source_1.jpg'))
+    value = compare_images(
+        cv2.imread('Histogram_Comparison_Source_0.jpg'),
+        cv2.imread('Histogram_Comparison_Source_1.jpg')
+    )
 
     print(value)

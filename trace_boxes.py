@@ -18,11 +18,22 @@ class TraceBoxesDatabase:
         self.trace_boxes.append(TraceBox(box))
 
     # 追跡対象のバウンディングボックスを追加
-    def add_box(self, box: tuple):
-        for trace_box in self.trace_boxes:
-            if trace_box.is_contain_position(box):
-                return
-        self.trace_boxes.append(TraceBox(box))
+    def add_box(self, box: tuple) -> bool:
+
+        iou_dict = {}
+
+        for i, trace_box in enumerate(self.trace_boxes):
+            iou_dict[i] = trace_box.iou_no_current(box)
+
+        iou_index = \
+            [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
+
+        print(iou_dict[iou_index])
+        if iou_dict[iou_index] < args.iou_threshold:
+            self.trace_boxes.append(TraceBox(box))
+            return True
+        else:
+            return False
 
     def add_box_include(self, box: tuple):
         for trace_box in self.trace_boxes:
@@ -51,10 +62,7 @@ class TraceBoxesDatabase:
             iou_list.append(iou)
             value_list.append(value)
         for i in range(len(box_list)):
-            # if value_list[i] == 0:
-            #     continue
             if value_list[i] < args.iou_threshold:
-                self.add_box_include(box_list[i][0])
                 continue
             self.trace_boxes[iou_list[i]].update(box_list[i][0])
 
@@ -172,5 +180,35 @@ class TraceBox:
         area = width * height
         all_area = (self.current_right - self.current_left) * (
                 self.current_bottom - self.current_top) + \
+                   (box[3] - box[1]) * (box[2] - box[0]) - area
+        return area / all_area
+
+    def iou_no_current(self, box: tuple) -> float:
+
+        if self.left < box[1]:
+            if self.right < box[3]:
+                width = self.right - box[1]
+            else:
+                width = box[3] - box[1]
+        else:
+            if box[3] < self.right:
+                width = box[3] - self.left
+            else:
+                width = self.right - self.left
+
+        if self.top < box[0]:
+            if self.bottom < box[2]:
+                height = self.bottom - box[0]
+            else:
+                height = box[2] - box[0]
+        else:
+            if box[2] < self.bottom:
+                height = box[2] - self.top
+            else:
+                height = self.bottom - self.top
+
+        area = width * height
+        all_area = (self.right - self.left) * (
+                self.bottom - self.top) + \
                    (box[3] - box[1]) * (box[2] - box[0]) - area
         return area / all_area

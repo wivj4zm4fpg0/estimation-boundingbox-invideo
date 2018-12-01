@@ -67,6 +67,7 @@ while True:
             trace_boxes_database.add_box(return_box[0])
         trace_boxes_database.all_update(return_boxes)
 
+    # 色々描画
     for trace_box in trace_boxes_database.trace_boxes:
         cv2.rectangle(result, (trace_box.left, trace_box.top),
                       (trace_box.right, trace_box.bottom), (255, 255, 255), 1)

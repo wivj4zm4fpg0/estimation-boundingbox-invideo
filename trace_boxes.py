@@ -1,3 +1,4 @@
+import os
 import re
 
 from opt import parse_opts
@@ -74,16 +75,17 @@ class TraceBoxesDatabase:
                 min(self.width, trace_box.right + pad_width))
 
     # ffmpegでクロッピングするためのコマンドを出力
-    def print_boxes(self, input_name):
+    def print_boxes(self, input_name: str, output_dir: str):
         for i, trace_box in enumerate(self.trace_boxes):
-            output_name = '{}_{}.mp4'.format(re.sub(r'\.mp4', '', input_name), i)
+            output_name = '{}_{}.mp4'.format(
+                re.sub(r'\.mp4', '', os.path.basename(input_name)), i)
             command = 'ffmpeg -y -i {} -vf crop={}:{}:{}:{} {}'.format(
                 input_name,
                 trace_box.right - trace_box.left,
                 trace_box.bottom - trace_box.top,
                 trace_box.left,
                 trace_box.top,
-                output_name
+                os.path.join(output_dir, output_name)
             )
             print(command)
 
@@ -100,6 +102,9 @@ class TraceBox:
         self.current_bottom = box[2]
         self.current_right = box[3]
 
+        self.point_x_list = [int((box[1] + box[3]) / 2)]
+        self.point_y_list = [int((box[0] + box[2]) / 2)]
+
     # 追跡対象のバウンディングボックスを更新する
     def update(self, box: tuple):
         self.top = min(self.top, box[0])
@@ -111,6 +116,9 @@ class TraceBox:
         self.current_left = box[1]
         self.current_bottom = box[2]
         self.current_right = box[3]
+
+        self.point_x_list.append(int((box[1] + box[3]) / 2))
+        self.point_y_list.append(int((box[0] + box[2]) / 2))
 
     def is_contain_position(self, box: tuple) -> bool:
         if (self.top > box[0] and self.top > box[2]) or (

@@ -7,6 +7,12 @@ def parse_opts():
         '--input', type=str, default=None, required=True
     )
     parser.add_argument(
+        '--output', type=str, default=None, required=True
+    )
+    parser.add_argument(
+        '--save_video', action='store_true'
+    )
+    parser.add_argument(
         '--size', type=int, default=416, required=False
     )
     parser.add_argument(

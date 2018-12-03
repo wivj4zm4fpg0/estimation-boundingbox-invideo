@@ -1,3 +1,5 @@
+import os
+
 import cv2
 import numpy as np
 from PIL import Image
@@ -21,7 +23,7 @@ if args.save_video:
     codecs = 'H264'
     fourcc = cv2.VideoWriter_fourcc(*codecs)
     fps = int(cap.get(cv2.CAP_PROP_FPS))
-    out = cv2.VideoWriter('out.mp4', fourcc, fps, size)
+    out = cv2.VideoWriter('out_' + os.path.basename(args.input), fourcc, fps, size)
 
 trace_boxes_database = TraceBoxesDatabase(size[0], size[1])
 
@@ -59,22 +61,30 @@ while True:
 
     result = np.asarray(image)
 
-    if len(trace_boxes_database.trace_boxes) == 0:
-        for return_box in return_boxes:
-            trace_boxes_database.add_box_all(return_box[0])
-    else:
-        for return_box in return_boxes:
-            trace_boxes_database.add_box(return_box[0])
-        trace_boxes_database.all_update(return_boxes)
+    trace_boxes_database.update(return_boxes)
 
     # 色々描画
     for trace_box in trace_boxes_database.trace_boxes:
+
+        # 白枠（全体のバウンディングボックス）を描画
         cv2.rectangle(result, (trace_box.left, trace_box.top),
                       (trace_box.right, trace_box.bottom), (255, 255, 255), 1)
 
+        # 緑枠（追跡中のバウンディングボックス）を描画
+        cv2.rectangle(
+            result,
+            (trace_box.current_left, trace_box.current_top),
+            (trace_box.current_right, trace_box.current_bottom),
+            (0, 255, 0),
+            1
+        )
+
+        # バウンディングボックスの軌跡を描画
         for i in range(len(trace_box.point_x_list)):
+
             cv2.circle(result, (trace_box.point_x_list[i], trace_box.point_y_list[i]),
                        3, (100, 100, 255), thickness=1, lineType=cv2.LINE_AA)
+
             if i != 0:
                 cv2.line(
                     result,
@@ -85,8 +95,10 @@ while True:
                 )
 
     cv2.imshow('result', result)
+
     if args.save_video:
         out.write(result)
+
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 

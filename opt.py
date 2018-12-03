@@ -28,9 +28,6 @@ def parse_opts():
         '--nms_threshold', type=float, default=0.4, required=False
     )
     parser.add_argument(
-        '--compare_hist_threshold', type=float, default=0.4, required=False
-    )
-    parser.add_argument(
         '--padding_size', type=float, default=1.2, required=False
     )
     parser.add_argument(

@@ -167,23 +167,18 @@ class YOLO(object):
             # print(label, (left, top), (right, bottom))
             # example -> person 0.21 (124, 240) (153, 303)
 
-            return_boxes.append((
-                (top, left, bottom, right),
-                np.asarray(original_image)[top: bottom, left: right],
-                score
-            ))
+            return_boxes.append((top, left, bottom, right))
 
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])
             else:
                 text_origin = np.array([left, top + 1])
 
-            if self.score < score:
-                # My kingdom for a good redistributable image drawing library.
-                draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
-                draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
-                               fill=(0, 255, 255))
-                draw.text(text_origin, label, fill=(0, 0, 0), font=font)
+            # My kingdom for a good redistributable image drawing library.
+            draw.rectangle([left, top, right, bottom], outline=(0, 255, 255))
+            draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
+                           fill=(0, 255, 255))
+            draw.text(text_origin, label, fill=(0, 0, 0), font=font)
 
             del draw
 

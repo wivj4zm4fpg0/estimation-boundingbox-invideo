@@ -11,76 +11,49 @@ class TraceBoxesDatabase:
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
-        self.trace_boxes = []
-
-    # 追跡対象のバウンディングボックスを追加
-    def add_box_all(self, box: tuple):
-        self.trace_boxes.append(TraceBox(box))
-
-    # 追跡対象のバウンディングボックスを追加
-    def add_box(self, box: tuple) -> bool:
-
-        iou_dict = {}
-
-        for i, trace_box in enumerate(self.trace_boxes):
-            iou_dict[i] = trace_box.iou_no_current(box)
-
-        iou_index = \
-            [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
-
-        print(iou_dict[iou_index])
-        if iou_dict[iou_index] < args.iou_threshold:
-            self.trace_boxes.append(TraceBox(box))
-            return True
-        else:
-            return False
-
-    def add_box_include(self, box: tuple):
-        for trace_box in self.trace_boxes:
-            if trace_box.is_include(box):
-                return
-        self.trace_boxes.append(TraceBox(box))
+        # ダミーデータを入れる（番兵法みたいな）
+        self.trace_boxes = [TraceBox((-100, -100, -100, -100))]
 
     # 追跡対象のバウンディングボックスと現フレームのバウンディングボックスのそれぞれのiou値を総当りで調べて一番近いものを出力
     def get_index(self, box: tuple) -> tuple:
         iou_dict = {}
         for i, trace_box in enumerate(self.trace_boxes):
-            if not trace_box.is_contain_position_current(box):
+            if not trace_box.is_contain_position(box):
                 iou_dict[i] = 0
             else:
-                iou_dict[i] = trace_box.iou(box)
+                iou_dict[i] = trace_box.get_iou(box)
         iou_index = \
             [k for k, v in iou_dict.items() if v == max(iou_dict.values())][0]
         return iou_index, iou_dict[iou_index]
 
     # iouが近いものを更新する
-    def all_update(self, box_list: list):
+    def update(self, box_list: list):
         iou_list = []
         value_list = []
         for box in box_list:
-            iou, value = self.get_index(box[0])
+            iou, value = self.get_index(box)
             iou_list.append(iou)
             value_list.append(value)
-        for i in range(len(box_list)):
+        for i, box in enumerate(box_list):
+            # 閾値より下なら新しく追跡対象を追加
             if value_list[i] < args.iou_threshold:
+                self.trace_boxes.append(TraceBox(box))
                 continue
-            self.trace_boxes[iou_list[i]].update(box_list[i][0])
+            self.trace_boxes[iou_list[i]].update(box)
 
     # バウンディングボックスを拡張する
     def padding_boxes(self):
         for trace_box in self.trace_boxes:
             box_width = trace_box.right - trace_box.left
             box_height = trace_box.bottom - trace_box.top
+
             pad_width = (box_width * args.padding_size - box_width) / 2
             pad_height = (box_height * args.padding_size - box_height) / 2
-            trace_box.top = int(
-                max(0, trace_box.top - pad_height))
-            trace_box.left = int(
-                max(0, trace_box.left - pad_width))
-            trace_box.bottom = int(
-                min(self.height, trace_box.bottom + pad_height))
-            trace_box.right = int(
-                min(self.width, trace_box.right + pad_width))
+
+            trace_box.top = int(max(0, trace_box.top - pad_height))
+            trace_box.left = int(max(0, trace_box.left - pad_width))
+            trace_box.bottom = int(min(self.height, trace_box.bottom + pad_height))
+            trace_box.right = int(min(self.width, trace_box.right + pad_width))
 
     # ffmpegでクロッピングするためのコマンドを出力
     def print_boxes(self, input_name: str, output_dir: str):
@@ -129,15 +102,6 @@ class TraceBox:
         self.point_y_list.append(int((box[0] + box[2]) / 2))
 
     def is_contain_position(self, box: tuple) -> bool:
-        if (self.top > box[0] and self.top > box[2]) or (
-                self.bottom < box[0] and self.bottom < box[2]) or (
-                self.left > box[1] and self.left > box[3]) or (
-                self.right < box[1] and self.right < box[3]):
-            return False
-        else:
-            return True
-
-    def is_contain_position_current(self, box: tuple) -> bool:
         if (self.current_top > box[0] and self.current_top > box[2]) or (
                 self.current_bottom < box[0] and self.current_bottom < box[2]) or (
                 self.current_left > box[1] and self.current_left > box[3]) or (
@@ -146,14 +110,7 @@ class TraceBox:
         else:
             return True
 
-    def is_include(self, box: tuple) -> bool:
-        if (self.top <= box[0] and self.left <= box[1] and self.bottom > -box[2]
-                and self.right >= box[3]):
-            return True
-        else:
-            return False
-
-    def iou(self, box: tuple) -> float:
+    def get_iou(self, box: tuple) -> float:
 
         if self.current_left < box[1]:
             if self.current_right < box[3]:
@@ -178,37 +135,9 @@ class TraceBox:
                 height = self.current_bottom - self.current_top
 
         area = width * height
+
         all_area = (self.current_right - self.current_left) * (
                 self.current_bottom - self.current_top) + \
                    (box[3] - box[1]) * (box[2] - box[0]) - area
-        return area / all_area
 
-    def iou_no_current(self, box: tuple) -> float:
-
-        if self.left < box[1]:
-            if self.right < box[3]:
-                width = self.right - box[1]
-            else:
-                width = box[3] - box[1]
-        else:
-            if box[3] < self.right:
-                width = box[3] - self.left
-            else:
-                width = self.right - self.left
-
-        if self.top < box[0]:
-            if self.bottom < box[2]:
-                height = self.bottom - box[0]
-            else:
-                height = box[2] - box[0]
-        else:
-            if box[2] < self.bottom:
-                height = box[2] - self.top
-            else:
-                height = self.bottom - self.top
-
-        area = width * height
-        all_area = (self.right - self.left) * (
-                self.bottom - self.top) + \
-                   (box[3] - box[1]) * (box[2] - box[0]) - area
         return area / all_area

@@ -1,5 +1,4 @@
 import colorsys
-import copy
 import os
 
 import PIL
@@ -140,8 +139,6 @@ class YOLO(object):
         font = ImageFont.truetype(font='font/FiraMono-Medium.otf',
                                   size=np.floor(3e-2 * image.size[1] + 0.5).astype(
                                       'int32'))
-
-        original_image = copy.copy(image)
 
         return_boxes = []
 

@@ -58,6 +58,8 @@ class TraceBoxesDatabase:
     # ffmpegでクロッピングするためのコマンドを出力
     def print_boxes(self, input_name: str, output_dir: str):
         for i, trace_box in enumerate(self.trace_boxes):
+            if trace_box.bottom < 0:
+                continue
             output_name = '{}_{}.mp4'.format(
                 re.sub(r'\.mp4', '', os.path.basename(input_name)), i)
             command = 'ffmpeg -y -i {} -vf crop={}:{}:{}:{} {}'.format(

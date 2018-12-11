@@ -1,3 +1,4 @@
+import copy
 import os
 
 import cv2
@@ -44,12 +45,19 @@ while True:
 
     if not return_value:
         trace_boxes_database.padding_boxes()
-        for trace_box in trace_boxes_database.trace_boxes:
-            cv2.rectangle(result, (trace_box.left, trace_box.top),
-                          (trace_box.right, trace_box.bottom), (255, 255, 0), 2)
+        # result = cv2.cvtColor(result, cv2.COLOR_RGB2HSV)
+        for i, trace_box in enumerate(trace_boxes_database.trace_boxes):
+            hue_value = (i * 70 % 180, 255, 255)
+            color_value = (255, 255, 0)
+            cv2.rectangle(
+                result, (trace_box.left, trace_box.top),
+                (trace_box.right, trace_box.bottom),
+                color_value, 2
+            )
+        # result = cv2.cvtColor(result, cv2.COLOR_HSV2RGB)
         cv2.imshow('result', result)
-        if args.save_video:
-            out.write(result)
+        # if args.save_video:
+        #     out.write(result)
         trace_boxes_database.print_boxes(args.input, args.output)
         cv2.waitKey(0)
         break
@@ -62,38 +70,92 @@ while True:
     result = np.asarray(image)
 
     trace_boxes_database.update(return_boxes)
+    # result = cv2.cvtColor(result, cv2.COLOR_RGB2HSV)
 
     # 色々描画
-    for trace_box in trace_boxes_database.trace_boxes:
+    for j, trace_box in enumerate(trace_boxes_database.trace_boxes):
+
+        if j == 0:
+            continue
+
+        dir_name = f'{os.path.basename(args.input)}_{j}'
+        os.makedirs(dir_name, exist_ok=True)
+        number = len(os.listdir(dir_name))
+
+        current_img = copy.copy(frame)
+
+        cv2.rectangle(
+            current_img, (0, 0),
+            (trace_box.left, size[1]),
+            (255, 255, 255),
+            -1
+        )
+
+        cv2.rectangle(
+            current_img, (0, 0),
+            (size[0], trace_box.top),
+            (255, 255, 255),
+            -1
+        )
+
+        cv2.rectangle(
+            current_img, (trace_box.right, 0),
+            (size[0], size[1]),
+            (255, 255, 255),
+            -1
+        )
+
+        cv2.rectangle(
+            current_img, (0, trace_box.bottom),
+            (size[0], size[1]),
+            (255, 255, 255),
+            -1
+        )
+
+        cv2.imwrite(os.path.join(dir_name, f'image_{number}.jpg'), current_img)
 
         # 白枠（全体のバウンディングボックス）を描画
-        cv2.rectangle(result, (trace_box.left, trace_box.top),
-                      (trace_box.right, trace_box.bottom), (255, 255, 255), 1)
+        color_value = (j * 70 % 180, 255, 255)
+        rect_value = (255, 255, 255)
+        trace_value = (0, 255, 0)
+        circle_value = (100, 100, 255)
+        cv2.rectangle(
+            result, (trace_box.left, trace_box.top),
+            (trace_box.right, trace_box.bottom),
+            rect_value, 2
+        )
 
         # 緑枠（追跡中のバウンディングボックス）を描画
         cv2.rectangle(
             result,
             (trace_box.current_left, trace_box.current_top),
             (trace_box.current_right, trace_box.current_bottom),
-            (0, 255, 0),
-            1
+            trace_value,
+            2
         )
 
         # バウンディングボックスの軌跡を描画
-        for i in range(len(trace_box.point_x_list)):
+        # for i in range(len(trace_box.point_x_list)):
+        #
+        #     cv2.circle(
+        #         result,
+        #         (trace_box.point_x_list[i], trace_box.point_y_list[i]),
+        #         3, circle_value, thickness=1, lineType=cv2.LINE_AA
+        #     )
+        #
+        #     if i != 0:
+        #         cv2.line(
+        #             result,
+        #             (trace_box.point_x_list[i], trace_box.point_y_list[i]),
+        #             (
+        #                 trace_box.point_x_list[i - 1],
+        #                 trace_box.point_y_list[i - 1]
+        #             ),
+        #             circle_value,
+        #             lineType=cv2.LINE_AA
+        #         )
 
-            cv2.circle(result, (trace_box.point_x_list[i], trace_box.point_y_list[i]),
-                       3, (100, 100, 255), thickness=1, lineType=cv2.LINE_AA)
-
-            if i != 0:
-                cv2.line(
-                    result,
-                    (trace_box.point_x_list[i], trace_box.point_y_list[i]),
-                    (trace_box.point_x_list[i - 1], trace_box.point_y_list[i - 1]),
-                    (100, 100, 255),
-                    lineType=cv2.LINE_AA
-                )
-
+    # result = cv2.cvtColor(result, cv2.COLOR_HSV2RGB)
     cv2.imshow('result', result)
 
     if args.save_video:

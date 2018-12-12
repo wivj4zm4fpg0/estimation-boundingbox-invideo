@@ -112,7 +112,7 @@ while True:
             -1
         )
 
-        cv2.imwrite(os.path.join(dir_name, f'image_{number}.jpg'), current_img)
+        # cv2.imwrite(os.path.join(dir_name, f'image_{number}.jpg'), current_img)
 
         # 白枠（全体のバウンディングボックス）を描画
         color_value = (j * 70 % 180, 255, 255)

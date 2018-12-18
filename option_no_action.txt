@@ -202,4 +202,134 @@
 
 --input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.3 --size 320
 
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/855_video-Z65lGGMaSFE_2.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.3 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/858_video--JIyKmeGOSU_0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/860_video--JIyKmeGOSU_0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/861_video--JIyKmeGOSU_1.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/863_video--JIyKmeGOSU_1.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/874_video-2BJHqG23sRg.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/879_video-2BJHqG23sRg.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/882_video-3k6uSfNfhrc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/959_video-5Uhe1M6XieE.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/961_video-5Uhe1M6XieE.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/965_video-5Uhe1M6XieE.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/970_video-5Uhe1M6XieE.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/979_video-5k4fhs3R16w_1.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/998_video-5k4fhs3R16w_1.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1000_video-5k4fhs3R16w_1.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1015_video-AKcQT7pSMGk.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1017_video-AKcQT7pSMGk.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1019_video-AKcQT7pSMGk.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1053_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1063_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1065_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1078_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1081_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1112_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1115_video-HNyUVi6zBAc.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1131_video-IZJwmFY4QdU.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1138_video-JZfQWhp5RFs.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1141_video-JZfQWhp5RFs.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1160_video-MOdHbCSGhy4.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1162_video-MOdHbCSGhy4.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1172_video-O4WmGxy9lC8.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1174_video-O4WmGxy9lC8.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1240_video-VBdgLz8dDls.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1270_video-XdQSCBs8KPo.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1272_video-XdQSCBs8KPo.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1362_video-ZKQ8QiPdo00.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1364_video-ZKQ8QiPdo00.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1390_video-eTBjeTEawR0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1392_video-eTBjeTEawR0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.4 --nms_threshold 0.6 --iou_threshold 0.2 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1394_video-eTBjeTEawR0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.4 --nms_threshold 0.6 --iou_threshold 0.2 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1396_video-eTBjeTEawR0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1404_video-eo6TxMSCZ_8.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1407_video-eo6TxMSCZ_8.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.4 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1412_video-evPpXY_DoGA.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1415_video-fEYEGALJgZY.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.1 --nms_threshold 0.6 --iou_threshold 0.05 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1417_video-fEYEGALJgZY.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.1 --nms_threshold 0.6 --iou_threshold 0.05 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1421_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.05 --nms_threshold 0.6 --iou_threshold 0.05 --size 800
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1423_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.0125 --nms_threshold 0.6 --iou_threshold 0.05 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1425_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.0125 --nms_threshold 0.6 --iou_threshold 0.05 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1426_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1428_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.05 --nms_threshold 0.6 --iou_threshold 0.1 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1430_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.05 --nms_threshold 0.6 --iou_threshold 0.1 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1431_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.05 --nms_threshold 0.6 --iou_threshold 0.1 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1435_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.05 --nms_threshold 0.6 --iou_threshold 0.1 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1437_video-hZrEweU8x1M.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.05 --nms_threshold 0.6 --iou_threshold 0.1 --size 608
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1442_video-kYwPNAdKTpI_0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.025 --nms_threshold 0.6 --iou_threshold 0.05 --size 800
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1445_video-kYwPNAdKTpI_0.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.025 --nms_threshold 0.6 --iou_threshold 0.05 --size 704
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1449_video-kYwPNAdKTpI_1.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1459_video-kYwPNAdKTpI_2.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 416
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1462_video-kYwPNAdKTpI_2.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1516_video-o6HozKyz2cE.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1518_video-o6HozKyz2cE.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1533_video-wan0OOX7YBU.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1540_video-wan0OOX7YBU.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1544_video-wan0OOX7YBU.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
+
 

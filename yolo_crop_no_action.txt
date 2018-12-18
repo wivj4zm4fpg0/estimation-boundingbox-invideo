@@ -144,4 +144,332 @@ ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/302_Shopl
 ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/302_Shoplifting040_x264.mp4 -vf crop=110:202:492:50 /home/satoru/1tb/shoplifting-dataset/output_action/302_Shoplifting040_x264_5.mp4
 ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/302_Shoplifting040_x264.mp4 -vf crop=54:124:408:69 /home/satoru/1tb/shoplifting-dataset/output_action/302_Shoplifting040_x264_6.mp4
 
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/309_Shoplifting040_x264.mp4 -vf crop=106:192:479:19 /home/satoru/1tb/shoplifting-dataset/output_action/309_Shoplifting040_x264_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/309_Shoplifting040_x264.mp4 -vf crop=388:273:252:207 /home/satoru/1tb/shoplifting-dataset/output_action/309_Shoplifting040_x264_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/309_Shoplifting040_x264.mp4 -vf crop=340:223:100:257 /home/satoru/1tb/shoplifting-dataset/output_action/309_Shoplifting040_x264_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/309_Shoplifting040_x264.mp4 -vf crop=222:293:337:187 /home/satoru/1tb/shoplifting-dataset/output_action/309_Shoplifting040_x264_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/309_Shoplifting040_x264.mp4 -vf crop=28:81:555:1 /home/satoru/1tb/shoplifting-dataset/output_action/309_Shoplifting040_x264_5.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=30:78:554:1 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=310:285:241:195 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=129:219:487:8 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=238:266:402:214 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=542:372:98:108 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=283:326:195:55 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/311_Shoplifting040_x264.mp4 -vf crop=45:98:497:52 /home/satoru/1tb/shoplifting-dataset/output_action/311_Shoplifting040_x264_7.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/376_Shoplifting052_x264.mp4 -vf crop=476:469:18:11 /home/satoru/1tb/shoplifting-dataset/output_action/376_Shoplifting052_x264_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/378_Shoplifting052_x264.mp4 -vf crop=74:158:337:0 /home/satoru/1tb/shoplifting-dataset/output_action/378_Shoplifting052_x264_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/378_Shoplifting052_x264.mp4 -vf crop=258:480:134:0 /home/satoru/1tb/shoplifting-dataset/output_action/378_Shoplifting052_x264_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/378_Shoplifting052_x264.mp4 -vf crop=304:400:0:0 /home/satoru/1tb/shoplifting-dataset/output_action/378_Shoplifting052_x264_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/379_Shoplifting052_x264.mp4 -vf crop=105:157:308:0 /home/satoru/1tb/shoplifting-dataset/output_action/379_Shoplifting052_x264_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/379_Shoplifting052_x264.mp4 -vf crop=324:480:135:0 /home/satoru/1tb/shoplifting-dataset/output_action/379_Shoplifting052_x264_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/379_Shoplifting052_x264.mp4 -vf crop=128:198:173:0 /home/satoru/1tb/shoplifting-dataset/output_action/379_Shoplifting052_x264_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/379_Shoplifting052_x264.mp4 -vf crop=124:226:101:0 /home/satoru/1tb/shoplifting-dataset/output_action/379_Shoplifting052_x264_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/381_Shoplifting052_x264.mp4 -vf crop=283:480:88:0 /home/satoru/1tb/shoplifting-dataset/output_action/381_Shoplifting052_x264_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/381_Shoplifting052_x264.mp4 -vf crop=116:107:1:0 /home/satoru/1tb/shoplifting-dataset/output_action/381_Shoplifting052_x264_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/382_Shoplifting052_x264.mp4 -vf crop=583:480:57:0 /home/satoru/1tb/shoplifting-dataset/output_action/382_Shoplifting052_x264_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/382_Shoplifting052_x264.mp4 -vf crop=57:108:286:0 /home/satoru/1tb/shoplifting-dataset/output_action/382_Shoplifting052_x264_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/384_Shoplifting052_x264.mp4 -vf crop=303:480:51:0 /home/satoru/1tb/shoplifting-dataset/output_action/384_Shoplifting052_x264_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/386_Shoplifting052_x264.mp4 -vf crop=358:411:69:69 /home/satoru/1tb/shoplifting-dataset/output_action/386_Shoplifting052_x264_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/388_Shoplifting052_x264.mp4 -vf crop=424:480:98:0 /home/satoru/1tb/shoplifting-dataset/output_action/388_Shoplifting052_x264_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/389_Shoplifting052_x264.mp4 -vf crop=375:480:140:0 /home/satoru/1tb/shoplifting-dataset/output_action/389_Shoplifting052_x264_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/391_Shoplifting052_x264.mp4 -vf crop=356:480:38:0 /home/satoru/1tb/shoplifting-dataset/output_action/391_Shoplifting052_x264_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/400_video--cH7TGI6zUk.mp4 -vf crop=198:368:216:12 /home/satoru/1tb/shoplifting-dataset/output_action/400_video--cH7TGI6zUk_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/402_video--cH7TGI6zUk.mp4 -vf crop=188:288:199:65 /home/satoru/1tb/shoplifting-dataset/output_action/402_video--cH7TGI6zUk_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/403_video-2EoU6EXnPuE.mp4 -vf crop=207:231:67:217 /home/satoru/1tb/shoplifting-dataset/output_action/403_video-2EoU6EXnPuE_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/403_video-2EoU6EXnPuE.mp4 -vf crop=296:254:108:196 /home/satoru/1tb/shoplifting-dataset/output_action/403_video-2EoU6EXnPuE_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/403_video-2EoU6EXnPuE.mp4 -vf crop=86:142:103:233 /home/satoru/1tb/shoplifting-dataset/output_action/403_video-2EoU6EXnPuE_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/403_video-2EoU6EXnPuE.mp4 -vf crop=28:77:117:229 /home/satoru/1tb/shoplifting-dataset/output_action/403_video-2EoU6EXnPuE_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/405_video-2EoU6EXnPuE.mp4 -vf crop=362:252:87:224 /home/satoru/1tb/shoplifting-dataset/output_action/405_video-2EoU6EXnPuE_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/405_video-2EoU6EXnPuE.mp4 -vf crop=256:300:158:180 /home/satoru/1tb/shoplifting-dataset/output_action/405_video-2EoU6EXnPuE_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/405_video-2EoU6EXnPuE.mp4 -vf crop=140:189:101:239 /home/satoru/1tb/shoplifting-dataset/output_action/405_video-2EoU6EXnPuE_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/405_video-2EoU6EXnPuE.mp4 -vf crop=31:74:111:234 /home/satoru/1tb/shoplifting-dataset/output_action/405_video-2EoU6EXnPuE_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/406_video-2OM3oqQ2RbE_resize_0.mp4 -vf crop=639:480:0:0 /home/satoru/1tb/shoplifting-dataset/output_action/406_video-2OM3oqQ2RbE_resize_0_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/406_video-2OM3oqQ2RbE_resize_0.mp4 -vf crop=108:172:187:73 /home/satoru/1tb/shoplifting-dataset/output_action/406_video-2OM3oqQ2RbE_resize_0_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/408_video-2OM3oqQ2RbE_resize_0.mp4 -vf crop=304:474:145:6 /home/satoru/1tb/shoplifting-dataset/output_action/408_video-2OM3oqQ2RbE_resize_0_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/408_video-2OM3oqQ2RbE_resize_0.mp4 -vf crop=125:286:133:5 /home/satoru/1tb/shoplifting-dataset/output_action/408_video-2OM3oqQ2RbE_resize_0_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/419_video-2gqpXl8I7mE_resize.mp4 -vf crop=256:256:0:197 /home/satoru/1tb/shoplifting-dataset/output_action/419_video-2gqpXl8I7mE_resize_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/427_video-3-oz1SPWiY4.mp4 -vf crop=148:290:299:132 /home/satoru/1tb/shoplifting-dataset/output_action/427_video-3-oz1SPWiY4_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/430_video-3-oz1SPWiY4.mp4 -vf crop=238:376:264:104 /home/satoru/1tb/shoplifting-dataset/output_action/430_video-3-oz1SPWiY4_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=54:108:474:50 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=99:235:436:62 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=111:197:377:95 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=108:162:318:97 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=45:112:264:46 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=62:144:528:48 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/436_video-4WZo39BbE3o_2.mp4 -vf crop=82:214:558:68 /home/satoru/1tb/shoplifting-dataset/output_action/436_video-4WZo39BbE3o_2_7.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=82:213:558:69 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=118:197:378:90 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=117:216:318:51 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=54:116:258:42 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=92:231:449:36 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=60:142:530:48 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=82:96:315:47 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/439_video-4WZo39BbE3o_2.mp4 -vf crop=22:75:293:52 /home/satoru/1tb/shoplifting-dataset/output_action/439_video-4WZo39BbE3o_2_8.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=141:180:248:52 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=248:178:112:44 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=113:254:176:64 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=113:209:75:91 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=99:250:374:62 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=200:303:355:158 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=219:244:184:49 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=84:127:301:62 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=114:252:224:41 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_9.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=102:125:470:307 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_10.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=161:256:64:188 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_11.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/440_video-4WZo39BbE3o_3.mp4 -vf crop=63:78:404:60 /home/satoru/1tb/shoplifting-dataset/output_action/440_video-4WZo39BbE3o_3_12.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/448_video-64zoxiMu0p8_1.mp4 -vf crop=177:392:82:17 /home/satoru/1tb/shoplifting-dataset/output_action/448_video-64zoxiMu0p8_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/448_video-64zoxiMu0p8_1.mp4 -vf crop=124:257:114:34 /home/satoru/1tb/shoplifting-dataset/output_action/448_video-64zoxiMu0p8_1_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/448_video-64zoxiMu0p8_1.mp4 -vf crop=162:312:298:25 /home/satoru/1tb/shoplifting-dataset/output_action/448_video-64zoxiMu0p8_1_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/453_video-64zoxiMu0p8_1.mp4 -vf crop=424:338:65:110 /home/satoru/1tb/shoplifting-dataset/output_action/453_video-64zoxiMu0p8_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/453_video-64zoxiMu0p8_1.mp4 -vf crop=151:264:352:38 /home/satoru/1tb/shoplifting-dataset/output_action/453_video-64zoxiMu0p8_1_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/455_video-64zoxiMu0p8_1.mp4 -vf crop=75:188:405:40 /home/satoru/1tb/shoplifting-dataset/output_action/455_video-64zoxiMu0p8_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/455_video-64zoxiMu0p8_1.mp4 -vf crop=294:326:50:101 /home/satoru/1tb/shoplifting-dataset/output_action/455_video-64zoxiMu0p8_1_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/458_video-64zoxiMu0p8_1.mp4 -vf crop=161:267:324:40 /home/satoru/1tb/shoplifting-dataset/output_action/458_video-64zoxiMu0p8_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/458_video-64zoxiMu0p8_1.mp4 -vf crop=259:416:70:36 /home/satoru/1tb/shoplifting-dataset/output_action/458_video-64zoxiMu0p8_1_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/461_video-64zoxiMu0p8_1.mp4 -vf crop=305:364:84:60 /home/satoru/1tb/shoplifting-dataset/output_action/461_video-64zoxiMu0p8_1_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/462_video-64zoxiMu0p8_1.mp4 -vf crop=199:296:106:85 /home/satoru/1tb/shoplifting-dataset/output_action/462_video-64zoxiMu0p8_1_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/465_video-64zoxiMu0p8_1.mp4 -vf crop=172:249:126:128 /home/satoru/1tb/shoplifting-dataset/output_action/465_video-64zoxiMu0p8_1_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/476_video-A_KcGe-nqjw.mp4 -vf crop=27:50:108:109 /home/satoru/1tb/shoplifting-dataset/output_action/476_video-A_KcGe-nqjw_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/476_video-A_KcGe-nqjw.mp4 -vf crop=103:129:156:128 /home/satoru/1tb/shoplifting-dataset/output_action/476_video-A_KcGe-nqjw_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/476_video-A_KcGe-nqjw.mp4 -vf crop=40:81:235:92 /home/satoru/1tb/shoplifting-dataset/output_action/476_video-A_KcGe-nqjw_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/476_video-A_KcGe-nqjw.mp4 -vf crop=249:200:219:237 /home/satoru/1tb/shoplifting-dataset/output_action/476_video-A_KcGe-nqjw_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/476_video-A_KcGe-nqjw.mp4 -vf crop=84:84:157:170 /home/satoru/1tb/shoplifting-dataset/output_action/476_video-A_KcGe-nqjw_5.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/478_video-A_KcGe-nqjw.mp4 -vf crop=27:48:108:111 /home/satoru/1tb/shoplifting-dataset/output_action/478_video-A_KcGe-nqjw_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/478_video-A_KcGe-nqjw.mp4 -vf crop=48:140:206:88 /home/satoru/1tb/shoplifting-dataset/output_action/478_video-A_KcGe-nqjw_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/478_video-A_KcGe-nqjw.mp4 -vf crop=41:81:235:92 /home/satoru/1tb/shoplifting-dataset/output_action/478_video-A_KcGe-nqjw_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/478_video-A_KcGe-nqjw.mp4 -vf crop=234:320:220:128 /home/satoru/1tb/shoplifting-dataset/output_action/478_video-A_KcGe-nqjw_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/478_video-A_KcGe-nqjw.mp4 -vf crop=161:149:227:291 /home/satoru/1tb/shoplifting-dataset/output_action/478_video-A_KcGe-nqjw_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/478_video-A_KcGe-nqjw.mp4 -vf crop=17:52:158:158 /home/satoru/1tb/shoplifting-dataset/output_action/478_video-A_KcGe-nqjw_6.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=48:141:207:88 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=27:48:108:111 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=41:80:235:92 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=124:380:268:73 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=101:269:276:65 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=17:51:158:159 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/479_video-A_KcGe-nqjw.mp4 -vf crop=82:84:157:170 /home/satoru/1tb/shoplifting-dataset/output_action/479_video-A_KcGe-nqjw_7.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/483_video-b2e5xXVYEnY_resize.mp4 -vf crop=225:294:199:135 /home/satoru/1tb/shoplifting-dataset/output_action/483_video-b2e5xXVYEnY_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/483_video-b2e5xXVYEnY_resize.mp4 -vf crop=140:175:241:144 /home/satoru/1tb/shoplifting-dataset/output_action/483_video-b2e5xXVYEnY_resize_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/486_video-b2e5xXVYEnY_resize.mp4 -vf crop=113:267:290:135 /home/satoru/1tb/shoplifting-dataset/output_action/486_video-b2e5xXVYEnY_resize_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/489_video-bIxeQKzk9-0.mp4 -vf crop=189:298:44:142 /home/satoru/1tb/shoplifting-dataset/output_action/489_video-bIxeQKzk9-0_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/489_video-bIxeQKzk9-0.mp4 -vf crop=44:62:52:189 /home/satoru/1tb/shoplifting-dataset/output_action/489_video-bIxeQKzk9-0_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/489_video-bIxeQKzk9-0.mp4 -vf crop=182:252:425:152 /home/satoru/1tb/shoplifting-dataset/output_action/489_video-bIxeQKzk9-0_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/496_video-cxzukX7Z_1I_resize.mp4 -vf crop=136:172:504:268 /home/satoru/1tb/shoplifting-dataset/output_action/496_video-cxzukX7Z_1I_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/496_video-cxzukX7Z_1I_resize.mp4 -vf crop=160:350:415:100 /home/satoru/1tb/shoplifting-dataset/output_action/496_video-cxzukX7Z_1I_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/496_video-cxzukX7Z_1I_resize.mp4 -vf crop=339:388:188:70 /home/satoru/1tb/shoplifting-dataset/output_action/496_video-cxzukX7Z_1I_resize_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/502_video-cxzukX7Z_1I_resize.mp4 -vf crop=318:348:243:104 /home/satoru/1tb/shoplifting-dataset/output_action/502_video-cxzukX7Z_1I_resize_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=99:246:520:53 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=46:108:520:66 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=162:259:478:93 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=91:99:285:75 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=236:140:0:294 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=52:111:238:111 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=99:235:541:113 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=68:105:381:50 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=34:93:569:79 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_9.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/506_video-DKqb-0bBx7E_resize.mp4 -vf crop=158:87:232:342 /home/satoru/1tb/shoplifting-dataset/output_action/506_video-DKqb-0bBx7E_resize_10.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/509_video-DKqb-0bBx7E_resize.mp4 -vf crop=523:303:117:146 /home/satoru/1tb/shoplifting-dataset/output_action/509_video-DKqb-0bBx7E_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/509_video-DKqb-0bBx7E_resize.mp4 -vf crop=68:140:509:59 /home/satoru/1tb/shoplifting-dataset/output_action/509_video-DKqb-0bBx7E_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/509_video-DKqb-0bBx7E_resize.mp4 -vf crop=102:318:532:54 /home/satoru/1tb/shoplifting-dataset/output_action/509_video-DKqb-0bBx7E_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/509_video-DKqb-0bBx7E_resize.mp4 -vf crop=16:50:573:81 /home/satoru/1tb/shoplifting-dataset/output_action/509_video-DKqb-0bBx7E_resize_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/509_video-DKqb-0bBx7E_resize.mp4 -vf crop=28:80:537:75 /home/satoru/1tb/shoplifting-dataset/output_action/509_video-DKqb-0bBx7E_resize_5.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/512_video-DKqb-0bBx7E_resize.mp4 -vf crop=208:286:420:113 /home/satoru/1tb/shoplifting-dataset/output_action/512_video-DKqb-0bBx7E_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/512_video-DKqb-0bBx7E_resize.mp4 -vf crop=65:132:508:57 /home/satoru/1tb/shoplifting-dataset/output_action/512_video-DKqb-0bBx7E_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/512_video-DKqb-0bBx7E_resize.mp4 -vf crop=76:197:529:120 /home/satoru/1tb/shoplifting-dataset/output_action/512_video-DKqb-0bBx7E_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/512_video-DKqb-0bBx7E_resize.mp4 -vf crop=54:104:552:70 /home/satoru/1tb/shoplifting-dataset/output_action/512_video-DKqb-0bBx7E_resize_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/514_video-DKqb-0bBx7E_resize.mp4 -vf crop=36:92:528:62 /home/satoru/1tb/shoplifting-dataset/output_action/514_video-DKqb-0bBx7E_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/514_video-DKqb-0bBx7E_resize.mp4 -vf crop=120:233:520:81 /home/satoru/1tb/shoplifting-dataset/output_action/514_video-DKqb-0bBx7E_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/514_video-DKqb-0bBx7E_resize.mp4 -vf crop=41:92:562:75 /home/satoru/1tb/shoplifting-dataset/output_action/514_video-DKqb-0bBx7E_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/514_video-DKqb-0bBx7E_resize.mp4 -vf crop=54:142:586:112 /home/satoru/1tb/shoplifting-dataset/output_action/514_video-DKqb-0bBx7E_resize_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/516_video-DKqb-0bBx7E_resize.mp4 -vf crop=34:82:563:76 /home/satoru/1tb/shoplifting-dataset/output_action/516_video-DKqb-0bBx7E_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/516_video-DKqb-0bBx7E_resize.mp4 -vf crop=177:318:457:69 /home/satoru/1tb/shoplifting-dataset/output_action/516_video-DKqb-0bBx7E_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/516_video-DKqb-0bBx7E_resize.mp4 -vf crop=138:283:458:61 /home/satoru/1tb/shoplifting-dataset/output_action/516_video-DKqb-0bBx7E_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/516_video-DKqb-0bBx7E_resize.mp4 -vf crop=25:102:615:149 /home/satoru/1tb/shoplifting-dataset/output_action/516_video-DKqb-0bBx7E_resize_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=40:66:573:147 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=64:173:94:141 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=62:78:412:117 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=81:68:322:178 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=189:243:145:122 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=58:72:369:113 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/519_video-DXlgdJ34Gnc_resize.mp4 -vf crop=334:291:306:132 /home/satoru/1tb/shoplifting-dataset/output_action/519_video-DXlgdJ34Gnc_resize_7.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=76:82:342:164 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=52:75:374:111 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=60:78:414:116 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=39:64:573:147 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=63:173:95:141 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=160:220:459:209 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/522_video-DXlgdJ34Gnc_resize.mp4 -vf crop=184:259:400:161 /home/satoru/1tb/shoplifting-dataset/output_action/522_video-DXlgdJ34Gnc_resize_7.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/558_video-fs-ifFsc8Bg_resize.mp4 -vf crop=104:194:187:131 /home/satoru/1tb/shoplifting-dataset/output_action/558_video-fs-ifFsc8Bg_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/558_video-fs-ifFsc8Bg_resize.mp4 -vf crop=46:34:15:108 /home/satoru/1tb/shoplifting-dataset/output_action/558_video-fs-ifFsc8Bg_resize_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=63:106:220:68 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=87:126:247:80 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=62:111:98:66 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=94:150:258:144 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=92:127:26:97 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=16:32:175:57 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=39:84:294:107 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=213:82:26:354 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/588_video-GB0e1M5p3NU.mp4 -vf crop=33:56:143:80 /home/satoru/1tb/shoplifting-dataset/output_action/588_video-GB0e1M5p3NU_9.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=360:243:80:208 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=137:186:224:129 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=63:172:80:88 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=117:154:27:90 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=20:62:148:59 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=63:104:227:104 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=60:111:258:93 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=215:115:0:329 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=107:246:0:196 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_9.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=204:292:224:142 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_10.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=21:77:123:74 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_11.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/590_video-GB0e1M5p3NU.mp4 -vf crop=29:80:234:59 /home/satoru/1tb/shoplifting-dataset/output_action/590_video-GB0e1M5p3NU_12.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/593_video-GB0e1M5p3NU.mp4 -vf crop=111:113:222:69 /home/satoru/1tb/shoplifting-dataset/output_action/593_video-GB0e1M5p3NU_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/593_video-GB0e1M5p3NU.mp4 -vf crop=126:180:222:145 /home/satoru/1tb/shoplifting-dataset/output_action/593_video-GB0e1M5p3NU_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/593_video-GB0e1M5p3NU.mp4 -vf crop=84:195:26:98 /home/satoru/1tb/shoplifting-dataset/output_action/593_video-GB0e1M5p3NU_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/593_video-GB0e1M5p3NU.mp4 -vf crop=34:82:229:58 /home/satoru/1tb/shoplifting-dataset/output_action/593_video-GB0e1M5p3NU_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/593_video-GB0e1M5p3NU.mp4 -vf crop=39:230:0:189 /home/satoru/1tb/shoplifting-dataset/output_action/593_video-GB0e1M5p3NU_5.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=63:274:0:187 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=64:96:264:81 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=58:90:272:87 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=102:175:224:151 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=93:126:75:88 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=93:206:35:99 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=56:90:140:52 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=34:94:233:44 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/595_video-GB0e1M5p3NU.mp4 -vf crop=32:70:225:64 /home/satoru/1tb/shoplifting-dataset/output_action/595_video-GB0e1M5p3NU_9.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/610_video-HsaTjpESyDU.mp4 -vf crop=397:480:0:0 /home/satoru/1tb/shoplifting-dataset/output_action/610_video-HsaTjpESyDU_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/620_video-lZPbkfUYavo.mp4 -vf crop=110:176:31:115 /home/satoru/1tb/shoplifting-dataset/output_action/620_video-lZPbkfUYavo_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/622_video-lZPbkfUYavo.mp4 -vf crop=147:243:25:106 /home/satoru/1tb/shoplifting-dataset/output_action/622_video-lZPbkfUYavo_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/634_video-OXlaho8wayQ_resize.mp4 -vf crop=249:192:195:249 /home/satoru/1tb/shoplifting-dataset/output_action/634_video-OXlaho8wayQ_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/634_video-OXlaho8wayQ_resize.mp4 -vf crop=219:271:159:104 /home/satoru/1tb/shoplifting-dataset/output_action/634_video-OXlaho8wayQ_resize_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/636_video-OXlaho8wayQ_resize.mp4 -vf crop=221:266:137:108 /home/satoru/1tb/shoplifting-dataset/output_action/636_video-OXlaho8wayQ_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/636_video-OXlaho8wayQ_resize.mp4 -vf crop=309:184:297:257 /home/satoru/1tb/shoplifting-dataset/output_action/636_video-OXlaho8wayQ_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/636_video-OXlaho8wayQ_resize.mp4 -vf crop=60:120:59:87 /home/satoru/1tb/shoplifting-dataset/output_action/636_video-OXlaho8wayQ_resize_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/746_video-u6dGiANdDNQ_1.mp4 -vf crop=306:357:280:91 /home/satoru/1tb/shoplifting-dataset/output_action/746_video-u6dGiANdDNQ_1_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/748_video-u6dGiANdDNQ_1.mp4 -vf crop=104:218:120:83 /home/satoru/1tb/shoplifting-dataset/output_action/748_video-u6dGiANdDNQ_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/748_video-u6dGiANdDNQ_1.mp4 -vf crop=211:316:368:135 /home/satoru/1tb/shoplifting-dataset/output_action/748_video-u6dGiANdDNQ_1_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/748_video-u6dGiANdDNQ_1.mp4 -vf crop=93:189:321:131 /home/satoru/1tb/shoplifting-dataset/output_action/748_video-u6dGiANdDNQ_1_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/758_video-uGpFQT3Uiig_1.mp4 -vf crop=91:210:457:81 /home/satoru/1tb/shoplifting-dataset/output_action/758_video-uGpFQT3Uiig_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/758_video-uGpFQT3Uiig_1.mp4 -vf crop=62:153:423:86 /home/satoru/1tb/shoplifting-dataset/output_action/758_video-uGpFQT3Uiig_1_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/758_video-uGpFQT3Uiig_1.mp4 -vf crop=52:156:494:130 /home/satoru/1tb/shoplifting-dataset/output_action/758_video-uGpFQT3Uiig_1_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/760_video-uGpFQT3Uiig_1.mp4 -vf crop=45:158:499:126 /home/satoru/1tb/shoplifting-dataset/output_action/760_video-uGpFQT3Uiig_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/760_video-uGpFQT3Uiig_1.mp4 -vf crop=92:170:416:108 /home/satoru/1tb/shoplifting-dataset/output_action/760_video-uGpFQT3Uiig_1_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/760_video-uGpFQT3Uiig_1.mp4 -vf crop=141:279:412:158 /home/satoru/1tb/shoplifting-dataset/output_action/760_video-uGpFQT3Uiig_1_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=60:90:331:70 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=90:106:285:71 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=139:197:218:220 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=154:130:300:281 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=158:90:212:321 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=53:94:262:89 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=50:160:0:244 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=148:259:394:165 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/780_video-vA9duDV6VFc_0.mp4 -vf crop=136:98:308:165 /home/satoru/1tb/shoplifting-dataset/output_action/780_video-vA9duDV6VFc_0_9.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/782_video-vA9duDV6VFc_0.mp4 -vf crop=40:87:324:97 /home/satoru/1tb/shoplifting-dataset/output_action/782_video-vA9duDV6VFc_0_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/782_video-vA9duDV6VFc_0.mp4 -vf crop=76:92:281:87 /home/satoru/1tb/shoplifting-dataset/output_action/782_video-vA9duDV6VFc_0_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/782_video-vA9duDV6VFc_0.mp4 -vf crop=261:214:55:170 /home/satoru/1tb/shoplifting-dataset/output_action/782_video-vA9duDV6VFc_0_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/782_video-vA9duDV6VFc_0.mp4 -vf crop=245:177:96:200 /home/satoru/1tb/shoplifting-dataset/output_action/782_video-vA9duDV6VFc_0_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/782_video-vA9duDV6VFc_0.mp4 -vf crop=29:100:300:76 /home/satoru/1tb/shoplifting-dataset/output_action/782_video-vA9duDV6VFc_0_5.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/784_video-vA9duDV6VFc_1.mp4 -vf crop=52:93:332:75 /home/satoru/1tb/shoplifting-dataset/output_action/784_video-vA9duDV6VFc_1_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/784_video-vA9duDV6VFc_1.mp4 -vf crop=91:122:110:214 /home/satoru/1tb/shoplifting-dataset/output_action/784_video-vA9duDV6VFc_1_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=561:454:0:26 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=321:369:129:111 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=209:378:369:102 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=81:116:427:2 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=56:88:451:12 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=29:82:519:60 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/794_video-vBu6OiSdrds_resize.mp4 -vf crop=159:344:0:136 /home/satoru/1tb/shoplifting-dataset/output_action/794_video-vBu6OiSdrds_resize_7.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/797_video-vBu6OiSdrds_resize.mp4 -vf crop=197:324:390:15 /home/satoru/1tb/shoplifting-dataset/output_action/797_video-vBu6OiSdrds_resize_1.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/816_video-WMeziHjV7Sc_resize.mp4 -vf crop=77:160:456:61 /home/satoru/1tb/shoplifting-dataset/output_action/816_video-WMeziHjV7Sc_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/816_video-WMeziHjV7Sc_resize.mp4 -vf crop=243:356:273:33 /home/satoru/1tb/shoplifting-dataset/output_action/816_video-WMeziHjV7Sc_resize_2.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/820_video-WMeziHjV7Sc_resize.mp4 -vf crop=86:184:394:40 /home/satoru/1tb/shoplifting-dataset/output_action/820_video-WMeziHjV7Sc_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/820_video-WMeziHjV7Sc_resize.mp4 -vf crop=236:310:189:139 /home/satoru/1tb/shoplifting-dataset/output_action/820_video-WMeziHjV7Sc_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/820_video-WMeziHjV7Sc_resize.mp4 -vf crop=291:310:183:91 /home/satoru/1tb/shoplifting-dataset/output_action/820_video-WMeziHjV7Sc_resize_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/833_video-yyUaFBMwLlA_resize.mp4 -vf crop=29:66:484:186 /home/satoru/1tb/shoplifting-dataset/output_action/833_video-yyUaFBMwLlA_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/833_video-yyUaFBMwLlA_resize.mp4 -vf crop=113:216:191:63 /home/satoru/1tb/shoplifting-dataset/output_action/833_video-yyUaFBMwLlA_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/833_video-yyUaFBMwLlA_resize.mp4 -vf crop=93:142:459:48 /home/satoru/1tb/shoplifting-dataset/output_action/833_video-yyUaFBMwLlA_resize_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/833_video-yyUaFBMwLlA_resize.mp4 -vf crop=80:149:551:131 /home/satoru/1tb/shoplifting-dataset/output_action/833_video-yyUaFBMwLlA_resize_4.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/835_video-yyUaFBMwLlA_resize.mp4 -vf crop=114:190:183:99 /home/satoru/1tb/shoplifting-dataset/output_action/835_video-yyUaFBMwLlA_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/835_video-yyUaFBMwLlA_resize.mp4 -vf crop=60:111:556:149 /home/satoru/1tb/shoplifting-dataset/output_action/835_video-yyUaFBMwLlA_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/835_video-yyUaFBMwLlA_resize.mp4 -vf crop=30:68:483:184 /home/satoru/1tb/shoplifting-dataset/output_action/835_video-yyUaFBMwLlA_resize_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/837_video-yyUaFBMwLlA_resize.mp4 -vf crop=30:68:483:184 /home/satoru/1tb/shoplifting-dataset/output_action/837_video-yyUaFBMwLlA_resize_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/837_video-yyUaFBMwLlA_resize.mp4 -vf crop=60:129:555:132 /home/satoru/1tb/shoplifting-dataset/output_action/837_video-yyUaFBMwLlA_resize_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/837_video-yyUaFBMwLlA_resize.mp4 -vf crop=176:255:210:64 /home/satoru/1tb/shoplifting-dataset/output_action/837_video-yyUaFBMwLlA_resize_3.mp4
+
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=141:208:364:31 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=108:180:176:72 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=146:228:306:41 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=176:372:373:75 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=63:148:270:112 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_5.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=124:281:434:82 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_6.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=75:161:313:40 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_7.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=232:442:281:24 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_8.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/853_video-Z65lGGMaSFE_2.mp4 -vf crop=77:165:393:111 /home/satoru/1tb/shoplifting-dataset/output_action/853_video-Z65lGGMaSFE_2_9.mp4
+
 

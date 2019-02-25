@@ -785,4 +785,9 @@ ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1540_vide
 ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1544_video-wan0OOX7YBU.mp4 -vf crop=38:110:281:50 /home/satoru/1tb/shoplifting-dataset/output_no_action/1544_video-wan0OOX7YBU_1.mp4
 ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1544_video-wan0OOX7YBU.mp4 -vf crop=52:162:194:48 /home/satoru/1tb/shoplifting-dataset/output_no_action/1544_video-wan0OOX7YBU_2.mp4
 
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/441_video-4WZo39BbE3o_3.mp4 -vf crop=127:345:368:75 /home/satoru/1tb/shoplifting-dataset/output_action/441_video-4WZo39BbE3o_3_1.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/441_video-4WZo39BbE3o_3.mp4 -vf crop=128:153:444:283 /home/satoru/1tb/shoplifting-dataset/output_action/441_video-4WZo39BbE3o_3_2.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/441_video-4WZo39BbE3o_3.mp4 -vf crop=140:238:65:207 /home/satoru/1tb/shoplifting-dataset/output_action/441_video-4WZo39BbE3o_3_3.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/441_video-4WZo39BbE3o_3.mp4 -vf crop=113:207:69:92 /home/satoru/1tb/shoplifting-dataset/output_action/441_video-4WZo39BbE3o_3_4.mp4
+ffmpeg -y -i /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/441_video-4WZo39BbE3o_3.mp4 -vf crop=146:288:374:162 /home/satoru/1tb/shoplifting-dataset/output_action/441_video-4WZo39BbE3o_3_5.mp4
 

@@ -332,4 +332,5 @@
 
 --input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/1544_video-wan0OOX7YBU.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
 
+--input /home/satoru/1tb/shoplifting-dataset/full_videos_split_10/441_video-4WZo39BbE3o_3.mp4 --output /home/satoru/1tb/shoplifting-dataset/output_action --model model_data/yolov3-spp.h5 --anchors model_data/yolov3-spp_anchors.txt --conf_threshold 0.3 --nms_threshold 0.6 --iou_threshold 0.1 --size 320
 
